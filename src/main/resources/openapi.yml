@@ -1,0 +1,50 @@
+openapi: "3.0.2"
+info:
+  title: Hexagonal
+  description: "Demo project for jQAssistant and Hexagonal Architecture"
+  version: 0.0.1
+paths:
+  /users:
+    get:
+      summary: Get all users
+      operationId: getAllUsers
+      tags:
+        - users
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    put:
+      summary: Create or update an existing user
+      operationId: createOrUpdateUser
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        201:
+          description: successful operation
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - email
+        - firstName
+        - lastName
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string

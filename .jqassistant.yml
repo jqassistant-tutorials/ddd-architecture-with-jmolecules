@@ -1,0 +1,9 @@
+jqassistant:
+  plugins:
+    - group-id: org.jqassistant.contrib.plugin
+      artifact-id: jqassistant-jmolecules-plugin
+      version: 1.4.0
+  analyze:
+    groups:
+      - jmolecules-layered:Strict
+      - jmolecules-ddd:Strict
