@@ -3,21 +3,20 @@ package org.jqassistant.demo.architecture.ddd.user.application;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
-import org.jqassistant.demo.architecture.ddd.user.domain.UserRepository;
+import org.jqassistant.demo.architecture.ddd.user.domain.UserDomainService;
 import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class UserService {
+public class UserApplicationService {
 
-    private final UserRepository userRepository;
+    private final UserDomainService userDomainService;
 
     @Transactional(readOnly = true)
     public List<User> getAllUsers() {
-        return userRepository
-                .findAll();
+        return userDomainService.getAllUsers();
     }
 
     @Transactional
@@ -27,7 +26,7 @@ public class UserService {
                 .firstName(firstName)
                 .lastName(lastName)
                 .build();
-        return userRepository.save(user);
+        return userDomainService.create(user);
     }
 
 }

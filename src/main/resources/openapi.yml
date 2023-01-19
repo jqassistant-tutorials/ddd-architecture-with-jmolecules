@@ -1,7 +1,7 @@
 openapi: "3.0.2"
 info:
-  title: Hexagonal
-  description: "Demo project for jQAssistant and Hexagonal Architecture"
+  title: DDD
+  description: "Demo project for DDD Architecture and jQAssistant"
   version: 0.0.1
 paths:
   /users:
@@ -33,6 +33,10 @@ paths:
       responses:
         201:
           description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
 components:
   schemas:
     User:
@@ -42,6 +46,9 @@ components:
         - firstName
         - lastName
       properties:
+        id:
+          type: integer
+          format: int64
         email:
           type: string
         firstName:
