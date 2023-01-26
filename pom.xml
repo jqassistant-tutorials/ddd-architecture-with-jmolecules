@@ -88,30 +88,38 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <!-- jQAssistant -->
+                    <groupId>com.buschmais.jqassistant</groupId>
+                    <artifactId>jqassistant-maven-plugin</artifactId>
+                    <version>${jqassistant.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <!-- OpenAPI Generator -->
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
                 <version>6.2.1</version>
+                <configuration>
+                    <generatorName>spring</generatorName>
+                    <configOptions>
+                        <interfaceOnly>true</interfaceOnly>
+                    </configOptions>
+                </configuration>
                 <executions>
                     <execution>
+                        <id>generate-users-api</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>
-                                ${project.basedir}/src/main/resources/openapi.yml
-                            </inputSpec>
-                            <generatorName>spring</generatorName>
-                            <apiPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.rest</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.rest.model</modelPackage>
-                            <supportingFilesToGenerate>
-                                ApiUtil.java
-                            </supportingFilesToGenerate>
-                            <configOptions>
-                                <interfaceOnly>true</interfaceOnly>
-                            </configOptions>
+                            <inputSpec>${project.basedir}/src/main/resources/users-api.yml</inputSpec>
+                            <apiPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.users</apiPackage>
+                            <modelPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.users.model</modelPackage>
                         </configuration>
                     </execution>
                 </executions>
@@ -159,10 +167,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <!-- jQAssistant -->
                         <groupId>com.buschmais.jqassistant</groupId>
                         <artifactId>jqassistant-maven-plugin</artifactId>
-                        <version>${jqassistant.version}</version>
                         <executions>
                             <execution>
                                 <id>default-cli</id>

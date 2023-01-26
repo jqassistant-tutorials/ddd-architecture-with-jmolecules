@@ -4,6 +4,8 @@ jqassistant:
       artifact-id: jqassistant-jmolecules-plugin
       version: 1.4.0
   analyze:
+    rule:
+      default-concept-severity: INFO
     groups:
       - jmolecules-layered:Strict
       - jmolecules-ddd:Strict

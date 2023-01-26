@@ -1,10 +1,10 @@
-package org.jqassistant.demo.architecture.ddd.user.interfaces.rest;
+package org.jqassistant.demo.architecture.ddd.user.interfaces.users;
 
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
 import org.jqassistant.demo.architecture.ddd.user.application.UserApplicationService;
-import org.jqassistant.demo.architecture.ddd.user.interfaces.rest.model.User;
+import org.jqassistant.demo.architecture.ddd.user.interfaces.users.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 

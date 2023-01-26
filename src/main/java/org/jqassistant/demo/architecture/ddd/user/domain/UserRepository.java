@@ -1,8 +1,12 @@
 package org.jqassistant.demo.architecture.ddd.user.domain;
 
+import java.util.List;
+
 import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
-import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository {
 
+    List<User> findAll();
+
+    User save(User user);
 }

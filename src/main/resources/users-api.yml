@@ -3,6 +3,9 @@ info:
   title: DDD
   description: "Demo project for DDD Architecture and jQAssistant"
   version: 0.0.1
+tags:
+  - name: users
+    description: Users API
 paths:
   /users:
     get:
