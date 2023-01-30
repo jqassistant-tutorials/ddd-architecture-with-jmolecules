@@ -2,9 +2,11 @@ package org.jqassistant.demo.architecture.ddd;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.jqassistant.demo.architecture.ddd.user.application.UserApplicationService;
 import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -14,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static java.lang.Long.valueOf;
 import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
@@ -25,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class UsersControllerTest {
+public class UsersApiControllerTest {
 
     @MockBean
     private UserApplicationService userApplicationService;
@@ -33,38 +36,64 @@ public class UsersControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    public void createAndFindUser() throws Exception {
-        Map<Long, User> users = new LinkedHashMap<>();
+    private Map<Long, User> users;
+
+    @BeforeEach
+    void stub() {
+        users = new LinkedHashMap<>();
         doAnswer(invocation -> {
             User user = invocation.getArgument(0);
-            long id = valueOf(users.size());
+            Long id = valueOf(users.size());
             users.put(id, user.toBuilder()
                     .id(id)
                     .build());
             return user;
         }).when(userApplicationService)
-                .create(any(User.class));
+                .save(any(User.class));
 
         doAnswer(invocation -> users.values()
                 .stream()
                 .collect(toList())).when(userApplicationService)
-                .getAllUsers();
+                .findAll();
 
-        this.mockMvc.perform(put("/users").contentType(APPLICATION_JSON)
-                        .content("{ \"email\": \"dirk.mahler@buschmais.com\", \"firstName\": \"Dirk\", \"lastName\": \"Mahler\" }")
+        doAnswer(invocation -> {
+            Long id = invocation.getArgument(0);
+            return Optional.ofNullable(users.get(id));
+        }).when(userApplicationService)
+                .findById(any(long.class));
+    }
+
+    @Test
+    void createAndFindUser() throws Exception {
+        this.mockMvc.perform(put("/api/v1/users").contentType(APPLICATION_JSON)
+                        .content("{ \"email\": \"foo.bar@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\" }")
                         .accept(APPLICATION_JSON))
                 .andExpect(status().isCreated());
 
-        verify(userApplicationService).create(any(User.class));
+        verify(userApplicationService).save(any(User.class));
 
-        this.mockMvc.perform(get("/users").accept(APPLICATION_JSON))
+        this.mockMvc.perform(get("/api/v1/users").accept(APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1)));
 
-        verify(userApplicationService).getAllUsers();
+        verify(userApplicationService).findAll();
 
+        this.mockMvc.perform(get("/api/v1/users/0").accept(APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON))
+                .andExpect(jsonPath("id", equalTo(0)))
+                .andExpect(jsonPath("firstName", equalTo("Foo")))
+                .andExpect(jsonPath("lastName", equalTo("Bar")))
+                .andExpect(jsonPath("email", equalTo("foo.bar@example.com")));
+
+        verify(userApplicationService).findById(0);
+    }
+
+    @Test
+    void getNonExistingUser() throws Exception {
+        this.mockMvc.perform(get("/api/v1/users/0").accept(APPLICATION_JSON))
+                .andExpect(status().isNotFound());
     }
 
 }

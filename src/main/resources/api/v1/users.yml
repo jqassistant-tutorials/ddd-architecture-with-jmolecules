@@ -1,6 +1,8 @@
-openapi: "3.0.2"
+openapi: 3.0.2
+servers:
+  - url: /api/v1
 info:
-  title: DDD
+  title: Users
   description: "Demo project for DDD Architecture and jQAssistant"
   version: 0.0.1
 tags:
@@ -40,6 +42,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/User'
+
+  /users/{id}:
+    get:
+      summary: Get a user by id
+      operationId: getUserById
+      tags:
+        - users
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: The user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        404:
+          description: The user for the given id does not exist.
+
 components:
   schemas:
     User:

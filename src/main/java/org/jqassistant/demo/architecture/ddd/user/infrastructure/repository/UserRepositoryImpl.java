@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserRepositoryImpl extends SimpleJpaRepository<User, String> implements UserRepository {
+public class UserRepositoryImpl extends SimpleJpaRepository<User, Long> implements UserRepository {
 
     public UserRepositoryImpl(EntityManager em) {
         super(User.class, em);

@@ -52,6 +52,16 @@
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
         </dependency>
+        <!-- Thymeleaf -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>5.2.3</version>
+        </dependency>
         <!-- Lombok & Mapstruct -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -117,9 +127,12 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/users-api.yml</inputSpec>
-                            <apiPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.users</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.users.model</modelPackage>
+                            <configOptions>
+                                <BasePath>klais</BasePath>
+                            </configOptions>
+                            <inputSpec>${project.basedir}/src/main/resources/api/v1/users.yml</inputSpec>
+                            <apiPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users</apiPackage>
+                            <modelPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users.model</modelPackage>
                         </configuration>
                     </execution>
                 </executions>
