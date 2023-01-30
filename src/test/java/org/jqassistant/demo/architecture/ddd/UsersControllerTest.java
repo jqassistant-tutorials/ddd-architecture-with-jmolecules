@@ -17,6 +17,7 @@ import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;
+import static org.mockito.Mockito.verify;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -36,16 +37,14 @@ public class UsersControllerTest {
     public void createAndFindUser() throws Exception {
         Map<Long, User> users = new LinkedHashMap<>();
         doAnswer(invocation -> {
-            User user = User.builder()
-                    .id(valueOf(users.size()))
-                    .email(invocation.getArgument(0))
-                    .firstName(invocation.getArgument(1))
-                    .lastName(invocation.getArgument(2))
-                    .build();
-            users.put(user.getId(), user);
+            User user = invocation.getArgument(0);
+            long id = valueOf(users.size());
+            users.put(id, user.toBuilder()
+                    .id(id)
+                    .build());
             return user;
         }).when(userApplicationService)
-                .create(any(String.class), any(String.class), any(String.class));
+                .create(any(User.class));
 
         doAnswer(invocation -> users.values()
                 .stream()
@@ -57,10 +56,15 @@ public class UsersControllerTest {
                         .accept(APPLICATION_JSON))
                 .andExpect(status().isCreated());
 
+        verify(userApplicationService).create(any(User.class));
+
         this.mockMvc.perform(get("/users").accept(APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON))
                 .andExpect(jsonPath("$", hasSize(1)));
+
+        verify(userApplicationService).getAllUsers();
+
     }
 
 }

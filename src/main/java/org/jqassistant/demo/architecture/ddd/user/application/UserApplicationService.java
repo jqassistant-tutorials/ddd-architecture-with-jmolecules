@@ -20,12 +20,7 @@ public class UserApplicationService {
     }
 
     @Transactional
-    public User create(String email, String firstName, String lastName) {
-        User user = User.builder()
-                .email(email)
-                .firstName(firstName)
-                .lastName(lastName)
-                .build();
+    public User create(User user) {
         return userDomainService.create(user);
     }
 

@@ -29,7 +29,7 @@ public class UsersController implements UsersApi {
 
     @Override
     public ResponseEntity<User> createOrUpdateUser(User user) {
-        User newUser = userMapper.fromDomain(userApplicationService.create(user.getEmail(), user.getFirstName(), user.getLastName()));
+        User newUser = userMapper.fromDomain(userApplicationService.create(userMapper.toDomain(user)));
         return ResponseEntity.status(CREATED)
                 .body(newUser);
     }
