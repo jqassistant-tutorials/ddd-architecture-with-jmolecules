@@ -3,6 +3,7 @@ package org.jqassistant.demo.architecture.ddd.user.interfaces.api;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
+import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.jqassistant.demo.architecture.ddd.user.application.UserApplicationService;
 import org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users.UsersApi;
 import org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users.model.User;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpStatus.CREATED;
 
-@RequiredArgsConstructor
+@PrimaryAdapter
 @RestController
 @RequestMapping("/api/v1")
+@RequiredArgsConstructor
 public class UsersApiController implements UsersApi {
 
     private final UserApplicationService userApplicationService;

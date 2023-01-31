@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.jmolecules.architecture.hexagonal.PrimaryPort;
 import org.jqassistant.demo.architecture.ddd.user.domain.UserDomainService;
 import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@PrimaryPort
 @Service
 @Slf4j
 @RequiredArgsConstructor

@@ -86,6 +86,11 @@
         </dependency>
         <dependency>
             <groupId>org.jmolecules</groupId>
+            <artifactId>jmolecules-hexagonal-architecture</artifactId>
+            <version>${jmolecules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jmolecules</groupId>
             <artifactId>jmolecules-layered-architecture</artifactId>
             <version>${jmolecules.version}</version>
         </dependency>
