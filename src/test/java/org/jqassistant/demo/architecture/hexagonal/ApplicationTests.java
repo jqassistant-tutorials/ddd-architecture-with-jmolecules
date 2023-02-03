@@ -1,10 +1,10 @@
-package org.jqassistant.demo.architecture.ddd;
+package org.jqassistant.demo.architecture.hexagonal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DDDApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

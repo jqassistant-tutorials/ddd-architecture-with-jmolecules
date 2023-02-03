@@ -1,11 +1,11 @@
-package org.jqassistant.demo.architecture.ddd;
+package org.jqassistant.demo.architecture.hexagonal;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import org.jqassistant.demo.architecture.ddd.user.application.UserApplicationService;
-import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
+import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
+import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static java.lang.Long.valueOf;
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -43,7 +42,7 @@ public class UsersApiControllerTest {
         users = new LinkedHashMap<>();
         doAnswer(invocation -> {
             User user = invocation.getArgument(0);
-            Long id = valueOf(users.size());
+            long id = users.size();
             users.put(id, user.toBuilder()
                     .id(id)
                     .build());

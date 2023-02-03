@@ -3,8 +3,8 @@ servers:
   - url: /api/v1
 info:
   title: Users
-  description: "Demo project for DDD Architecture and jQAssistant"
-  version: 0.0.1
+  description: "Users API"
+  version: 1.0.0
 tags:
   - name: users
     description: Users API

@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>org.jqassistant.demo</groupId>
-    <artifactId>ddd-architecture-with-jmolecules</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>org.jqassistant.demo.architecture</groupId>
+    <artifactId>hexagonal</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <description>Demo project for DDD Architecture, jMolecules and jQAssistant</description>
+    <description>Demo application for hexagonal architecture</description>
 
     <properties>
         <java.version>11</java.version>
@@ -89,11 +89,6 @@
             <artifactId>jmolecules-hexagonal-architecture</artifactId>
             <version>${jmolecules.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.jmolecules</groupId>
-            <artifactId>jmolecules-layered-architecture</artifactId>
-            <version>${jmolecules.version}</version>
-        </dependency>
         <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -136,8 +131,8 @@
                                 <BasePath>klais</BasePath>
                             </configOptions>
                             <inputSpec>${project.basedir}/src/main/resources/api/v1/users.yml</inputSpec>
-                            <apiPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.ddd.user.interfaces.api.v1.users.model</modelPackage>
+                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users</apiPackage>
+                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model</modelPackage>
                         </configuration>
                     </execution>
                 </executions>

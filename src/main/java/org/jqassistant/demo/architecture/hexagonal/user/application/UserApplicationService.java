@@ -1,4 +1,4 @@
-package org.jqassistant.demo.architecture.ddd.user.application;
+package org.jqassistant.demo.architecture.hexagonal.user.application;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,11 +6,14 @@ import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jmolecules.architecture.hexagonal.PrimaryPort;
-import org.jqassistant.demo.architecture.ddd.user.domain.UserDomainService;
-import org.jqassistant.demo.architecture.ddd.user.domain.model.User;
+import org.jqassistant.demo.architecture.hexagonal.user.domain.UserDomainService;
+import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * User related application layer service.
+ */
 @PrimaryPort
 @Service
 @Slf4j

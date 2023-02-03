@@ -1,13 +1,13 @@
-package org.jqassistant.demo.architecture.ddd;
+package org.jqassistant.demo.architecture.hexagonal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DDDApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(DDDApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
