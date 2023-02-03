@@ -9,7 +9,7 @@ import lombok.*;
 /**
  * The domain entity defining a user.
  * <p>
- * Note: The class is a JPA {@link Entity}.
+ * Note: For convenience reasons this class is already annotated as JPA {@link Entity}.
  */
 @Entity
 @Getter

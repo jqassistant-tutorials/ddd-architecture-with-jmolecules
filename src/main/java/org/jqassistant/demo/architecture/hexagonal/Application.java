@@ -3,6 +3,9 @@ package org.jqassistant.demo.architecture.hexagonal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * The Spring Boot Application
+ */
 @SpringBootApplication
 public class Application {
 

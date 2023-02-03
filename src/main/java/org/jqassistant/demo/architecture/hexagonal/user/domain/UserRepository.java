@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.jmolecules.architecture.hexagonal.SecondaryPort;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 
+/**
+ * Defines the user repository interface.
+ */
 @SecondaryPort
 public interface UserRepository {
 
