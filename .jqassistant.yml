@@ -8,3 +8,5 @@ jqassistant:
       default-concept-severity: INFO
     groups:
       - jmolecules-ddd:Strict
+      - jmolecules-hexagonal:Default
+      - spring-boot:Strict
