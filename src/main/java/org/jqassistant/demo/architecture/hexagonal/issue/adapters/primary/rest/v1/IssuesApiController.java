@@ -70,8 +70,6 @@ public class IssuesApiController implements IssuesApi {
     public ResponseEntity<IssueDTO> commentIssue(Long id, CommentDTO commentDTO) {
         log.info("Comment issue '{id}' with '{}'.", id, commentDTO);
         Issue issue = issueApplicationService.findById(id);
-        issue.getComments()
-                .add(commentDTOMapper.toDomain(commentDTO));
-        return status(CREATED).body(issueDTOMapper.fromDomain(issueApplicationService.update(issue)));
+        return status(CREATED).body(issueDTOMapper.fromDomain(issueApplicationService.comment(issue, commentDTOMapper.toDomain(commentDTO))));
     }
 }

@@ -14,10 +14,13 @@ import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Issue {
 
     @Id
     @GeneratedValue
+    @EqualsAndHashCode.Include
+
     private Long id;
 
     private IssueType type;
@@ -31,6 +34,7 @@ public class Issue {
 
     @ElementCollection
     @OrderColumn
+    @Singular
     private List<Comment> comments;
 
 }
