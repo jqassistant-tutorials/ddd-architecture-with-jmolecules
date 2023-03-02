@@ -119,6 +119,7 @@
                     <modelNameSuffix>DTO</modelNameSuffix>
                     <configOptions>
                         <interfaceOnly>true</interfaceOnly>
+                        <skipDefaultInterface>true</skipDefaultInterface>
                     </configOptions>
                 </configuration>
                 <executions>
