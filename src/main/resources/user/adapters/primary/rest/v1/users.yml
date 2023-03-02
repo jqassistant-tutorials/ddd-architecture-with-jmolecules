@@ -1,6 +1,6 @@
 openapi: 3.0.2
 servers:
-  - url: /api/v1
+  - url: /rest/v1
 info:
   title: Users
   description: "Users API"

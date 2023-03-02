@@ -1,5 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1;
 
+import org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model.UserDTO;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.mapstruct.Mapper;
 
@@ -9,10 +10,10 @@ import org.mapstruct.Mapper;
  * The actual implementation is generated using MapStruct.
  */
 @Mapper
-public interface UsersApiMapper {
+public interface UserDTOMapper {
 
-    User toDomain(org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model.User user);
+    User toDomain(UserDTO userDTO);
 
-    org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model.User fromDomain(User user);
+    UserDTO fromDomain(User user);
 
 }
