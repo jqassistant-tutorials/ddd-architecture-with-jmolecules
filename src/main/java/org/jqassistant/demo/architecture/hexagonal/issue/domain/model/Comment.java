@@ -8,9 +8,9 @@ import lombok.*;
 @Getter
 @Setter
 @Builder(toBuilder = true)
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Comment {
 
     String content;

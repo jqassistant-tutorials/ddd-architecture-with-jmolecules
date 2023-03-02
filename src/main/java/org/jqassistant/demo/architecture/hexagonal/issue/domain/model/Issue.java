@@ -5,15 +5,17 @@ import java.util.List;
 import javax.persistence.*;
 
 import lombok.*;
+import org.jmolecules.ddd.annotation.AggregateRoot;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 
+@AggregateRoot
 @Entity
 @Getter
 @Setter
 @Builder(toBuilder = true)
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Issue {
 

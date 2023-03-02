@@ -48,7 +48,7 @@ public class IssuesApiControllerTest {
     private Map<Long, User> users;
 
     @BeforeEach
-    void stub() {
+    void stubApplicationService() {
         issues = new LinkedHashMap<>();
         users = new LinkedHashMap<>();
 
@@ -74,6 +74,14 @@ public class IssuesApiControllerTest {
             return issue;
         }).when(issueApplicationService)
                 .findById(anyLong());
+
+        // Delete issue
+        doAnswer(invocation -> {
+            Issue issue = invocation.getArgument(0);
+            issues.remove(issue.getId());
+            return null;
+        }).when(issueApplicationService)
+                .delete(any());
 
         // Assign issue
         doAnswer(invocation -> {
@@ -112,9 +120,9 @@ public class IssuesApiControllerTest {
         // then
         verify(issueApplicationService).create(any(Issue.class));
 
-        Issue issue = issues.get(0l);
+        Issue issue = issues.get(0L);
         assertThat(issue).isNotNull();
-        assertThat(issue.getId()).isEqualTo(0l);
+        assertThat(issue.getId()).isEqualTo(0L);
         assertThat(issue.getType()).isEqualTo(BUG);
         assertThat(issue.getTitle()).isEqualTo("bug title");
         assertThat(issue.getDescription()).isEqualTo("bug description");
@@ -123,7 +131,7 @@ public class IssuesApiControllerTest {
     @Test
     void getIssue() throws Exception {
         // given
-        Issue issue = storeIssue();
+        Issue issue = prepareIssue();
 
         // when
         this.mockMvc.perform(get(REST_V1_ISSUES + "/" + issue.getId()).accept(APPLICATION_JSON))
@@ -146,10 +154,25 @@ public class IssuesApiControllerTest {
     }
 
     @Test
+    void deleteIssue() throws Exception {
+        // given
+        Issue issue = prepareIssue();
+
+        // when
+        this.mockMvc.perform(delete(REST_V1_ISSUES + "/" + issue.getId()))
+                .andExpect(status().isOk());
+
+        // then
+        verify(issueApplicationService).delete(issue);
+        assertThat(issues).doesNotContainKey(issue.getId());
+    }
+
+
+    @Test
     void assignIssue() throws Exception {
         // given
-        Issue issue = storeIssue();
-        User assignee = storeUser();
+        Issue issue = prepareIssue();
+        User assignee = prepareUser();
         doReturn(Optional.of(assignee)).when(userApplicationService)
                 .findById(assignee.getId());
 
@@ -171,7 +194,7 @@ public class IssuesApiControllerTest {
     @Test
     void commentIssue() throws Exception {
         // given
-        Issue issue = storeIssue();
+        Issue issue = prepareIssue();
 
         // when
         this.mockMvc.perform(post(REST_V1_ISSUES + "/" + issue.getId() + "/comments").contentType(APPLICATION_JSON)
@@ -192,7 +215,7 @@ public class IssuesApiControllerTest {
         assertThat(comment.getContent()).isEqualTo("comment content");
     }
 
-    private Issue storeIssue() {
+    private Issue prepareIssue() {
         long id = issues.size();
         Issue issue = Issue.builder()
                 .id(id)
@@ -204,7 +227,7 @@ public class IssuesApiControllerTest {
         return issue;
     }
 
-    private User storeUser() {
+    private User prepareUser() {
         long id = users.size();
         User user = User.builder()
                 .id(id)
