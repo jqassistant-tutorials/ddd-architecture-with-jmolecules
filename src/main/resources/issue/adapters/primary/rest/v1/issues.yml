@@ -1,0 +1,175 @@
+openapi: 3.0.2
+servers:
+  - url: /rest/v1/users
+info:
+  title: Issues
+  description: "Issues API"
+  version: 1.0.0
+tags:
+  - name: issues
+    description: Issues API
+paths:
+  /issues:
+    post:
+      summary: Create an issue.
+      operationId: createIssue
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - type
+                - title
+                - description
+              properties:
+                type:
+                  $ref: '#/components/schemas/IssueType'
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+
+  /issues/{id}:
+    get:
+      summary: Get an issue.
+      operationId: getIssue
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: The issue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+        404:
+          description: The issue for the given id does not exist.
+    delete:
+      summary: Delete an issue.
+      operationId: deleteIssue
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: The issue
+        404:
+          description: The issue for the given id does not exist.
+
+  /issues/{id}/assignee:
+    put:
+      summary: Assign a user to an issue.
+      operationId: assignIssue
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - assigneeId
+              properties:
+                assigneeId:
+                  type: integer
+                  format: int64
+      responses:
+        201:
+          description: The issue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+        404:
+          description: The issue for the given id does not exist.
+
+  /issues/{id}/comments:
+    post:
+      summary: Add a comment to an issue
+      operationId: commentIssue
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+      responses:
+        201:
+          description: The issue
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Issue'
+        404:
+          description: The issue for the given id does not exist.
+
+
+components:
+  schemas:
+    Issue:
+      type: object
+      required:
+        - type
+        - title
+        - description
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          $ref: '#/components/schemas/IssueType'
+        title:
+          type: string
+        description:
+          type: string
+        assigneeId:
+          type: integer
+          format: int64
+        comments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+
+    IssueType:
+      type: string
+      enum: [EPIC, STORY, TASK, BUG]
+
+    Comment:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: string
+

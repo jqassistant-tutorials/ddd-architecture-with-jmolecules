@@ -116,8 +116,10 @@
                 <version>6.2.1</version>
                 <configuration>
                     <generatorName>spring</generatorName>
+                    <modelNameSuffix>DTO</modelNameSuffix>
                     <configOptions>
                         <interfaceOnly>true</interfaceOnly>
+                        <skipDefaultInterface>true</skipDefaultInterface>
                     </configOptions>
                 </configuration>
                 <executions>
@@ -127,9 +129,20 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/adapters/primary/rest/v1/users.yml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/user/adapters/primary/rest/v1/users.yml</inputSpec>
                             <apiPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users</apiPackage>
                             <modelPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model</modelPackage>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-issues-api</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml</inputSpec>
+                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.issues</apiPackage>
+                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.issues.model</modelPackage>
                         </configuration>
                     </execution>
                 </executions>

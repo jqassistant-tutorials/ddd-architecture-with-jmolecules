@@ -30,6 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class UsersApiControllerTest {
 
     public static final String REST_V1_USERS = "/rest/v1/users";
+
     @MockBean
     private UserApplicationService userApplicationService;
 
