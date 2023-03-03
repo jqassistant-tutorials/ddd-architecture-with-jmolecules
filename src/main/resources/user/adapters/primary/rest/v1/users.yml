@@ -10,11 +10,36 @@ tags:
     description: Users API
 paths:
   /users:
+    post:
+      summary: Create an user.
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - firstName
+                - lastName
+              properties:
+                email:
+                  type: string
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
     get:
-      summary: Get all users
-      operationId: getAllUsers
-      tags:
-        - users
+      summary: Get users.
+      operationId: getUsers
       responses:
         200:
           description: successful operation
@@ -24,31 +49,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-    put:
-      summary: Create or update an existing user
-      operationId: createOrUpdateUser
-      tags:
-        - users
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        201:
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
 
   /users/{id}:
     get:
-      summary: Get a user by id
-      operationId: getUserById
-      tags:
-        - users
+      summary: Get an user.
+      operationId: getUser
       parameters:
         - name: id
           in: path

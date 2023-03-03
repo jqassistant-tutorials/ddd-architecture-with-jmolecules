@@ -27,19 +27,18 @@ public class IssueApplicationService {
 
     public Issue findById(long id) {
         return issueRepository.findById(id)
-                .orElseThrow((() -> new NotFoundException("Issue not found.")));
+            .orElseThrow((() -> new NotFoundException("Issue not found.")));
     }
 
     public Issue assignUser(Issue issue, Long userId) {
-        User assignee = userApplicationService.findById(userId)
-                .orElseThrow(() -> new NotFoundException("User not found."));
+        User assignee = userApplicationService.findById(userId);
         issue.setAssignee(assignee);
         return issueRepository.save(issue);
     }
 
     public Issue comment(Issue issue, Comment comment) {
         issue.getComments()
-                .add(comment);
+            .add(comment);
         return issueRepository.save(issue);
     }
 

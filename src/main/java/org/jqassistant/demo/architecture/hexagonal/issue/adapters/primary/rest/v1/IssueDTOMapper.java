@@ -5,6 +5,7 @@ import org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1
 import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
 import org.jqassistant.demo.architecture.hexagonal.user.application.mapper.UserIdMapper;
 import org.mapstruct.Context;
+import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -19,7 +20,7 @@ public interface IssueDTOMapper {
     @Mapping(source = "assigneeId", target = "assignee")
     Issue toDomain(IssueDTO issueDTO, @Context UserApplicationService userApplicationService);
 
-    @Mapping(source = "assignee", target = "assigneeId")
+    @InheritInverseConfiguration
     IssueDTO fromDomain(Issue issue);
 
 }

@@ -18,8 +18,7 @@ public interface UserIdMapper {
     }
 
     default User map(Long id, @Context UserApplicationService userApplicationService) {
-        return userApplicationService.findById(id)
-                .orElse(null);
+        return userApplicationService.findById(id);
     }
 }
 

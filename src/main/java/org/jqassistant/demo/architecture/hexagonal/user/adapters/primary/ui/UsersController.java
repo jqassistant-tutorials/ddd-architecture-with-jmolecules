@@ -1,7 +1,5 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.ui;
 
-import javax.validation.Valid;
-
 import lombok.RequiredArgsConstructor;
 import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
@@ -13,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
 
 /**
  * Implementation of a controller for the Thymeleaf based UI.
@@ -39,12 +39,9 @@ public class UsersController {
 
     @GetMapping("edit/{id}")
     public String edit(@PathVariable("id") long id, Model model) {
-        return userApplicationService.findById(id)
-                .map(user -> {
-                    model.addAttribute("user", user);
-                    return "users/edit";
-                })
-                .orElse(list(model));
+        User user = userApplicationService.findById(id);
+        model.addAttribute("user", user);
+        return "users/edit";
     }
 
     @PostMapping("{id}")
@@ -56,7 +53,7 @@ public class UsersController {
     @PostMapping("save")
     public String save(@Valid User user, BindingResult result, Model model) {
         if (!result.hasErrors()) {
-            userApplicationService.save(user);
+            userApplicationService.create(user);
         }
         return list(model);
     }
