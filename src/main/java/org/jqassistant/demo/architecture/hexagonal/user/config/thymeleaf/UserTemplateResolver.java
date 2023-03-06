@@ -1,4 +1,4 @@
-package org.jqassistant.demo.architecture.hexagonal.config.thymeleaf;
+package org.jqassistant.demo.architecture.hexagonal.user.config.thymeleaf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +7,12 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
-public class TemplateResolver {
+class UserTemplateResolver {
 
     @Bean
-    public ITemplateResolver uiTemplateResolver() {
+    ITemplateResolver uiTemplateResolver() {
         ClassLoaderTemplateResolver userTemplateResolver = new ClassLoaderTemplateResolver();
-        userTemplateResolver.setPrefix("adapters/primary/ui/");
+        userTemplateResolver.setPrefix("/user/adapters/primary/ui/");
         userTemplateResolver.setSuffix(".html");
         userTemplateResolver.setTemplateMode(TemplateMode.HTML);
         userTemplateResolver.setCharacterEncoding("UTF-8");
