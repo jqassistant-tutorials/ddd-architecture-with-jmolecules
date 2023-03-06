@@ -20,7 +20,7 @@
         <java.version>11</java.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <jmolecules.version>1.6.0</jmolecules.version>
-        <jqassistant.version>1.12.2</jqassistant.version>
+        <jqassistant.version>2.0.0-M4</jqassistant.version>
     </properties>
 
     <dependencies>
@@ -141,8 +141,8 @@
                         </goals>
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml</inputSpec>
-                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.issues</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.issues.model</modelPackage>
+                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues</apiPackage>
+                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model</modelPackage>
                         </configuration>
                     </execution>
                 </executions>

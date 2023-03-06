@@ -1,0 +1,38 @@
+<jqassistant-rules
+        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+
+    <concept id="generated-code:UsersApi">
+        <providesConcept refId="java:GeneratedType" />
+        <description>
+        </description>
+        <cypher><![CDATA[
+            MATCH
+                    (generated:Type)
+            WHERE
+            generated.fqn starts with "org.jqassistant.demo.architecture.hexagonal.user"
+            SET
+            generated:Generated
+            RETURN
+                    generated as GeneratedType
+            ]]></cypher>
+    </concept>
+
+    <concept id="generated-code:IssuesApi">
+        <providesConcept refId="java:GeneratedType" />
+        <description>
+        </description>
+        <cypher><![CDATA[
+            MATCH
+                    (generated:Type)
+                WHERE
+                generated.fqn STARTS WITH 'org.jqassistant.demo.architecture.hexagonal.issue'
+            SET
+            generated:Generated
+            RETURN
+                    generated AS GeneratedType
+            ]]></cypher>
+    </concept>
+
+</jqassistant-rules>
