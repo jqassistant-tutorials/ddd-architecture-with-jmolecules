@@ -13,3 +13,4 @@ jqassistant:
       - jmolecules-ddd:Strict
       - jmolecules-hexagonal:Default
       - spring-boot:Strict
+      - maven:Default
