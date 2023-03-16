@@ -1,7 +1,7 @@
 package org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1;
 
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.IssueDTO;
 import org.jqassistant.demo.architecture.hexagonal.issue.domain.model.Issue;
-import org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.issues.model.IssueDTO;
 import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
 import org.jqassistant.demo.architecture.hexagonal.user.application.mapper.UserIdMapper;
 import org.mapstruct.Context;
