@@ -173,6 +173,7 @@
                         <arg>-Amapstruct.unmappedTargetPolicy=WARN</arg>
                         <arg>-Amapstruct.unmappedSourcePolicy=WARN</arg>
                         <arg>-Amapstruct.defaultComponentModel=spring</arg>
+                        <arg>-Amapstruct.defaultInjectionStrategy=constructor</arg>
                     </compilerArgs>
                 </configuration>
             </plugin>
