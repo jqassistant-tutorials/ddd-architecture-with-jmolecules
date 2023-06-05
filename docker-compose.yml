@@ -1,0 +1,39 @@
+version: '3'
+services:
+  hexagonal:
+    image: jqassistant-demo/hexagonal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.hexagonal.loadbalancer.server.port=8080"
+      - "traefik.http.routers.hexagonal.rule=Host(`localhost`) && PathPrefix(`/hexagonal/`)"
+      - "traefik.http.routers.hexagonal.entrypoints=web"
+      - "traefik.http.routers.hexagonal.middlewares=hexagonal-strip-prefix"
+      - "traefik.http.middlewares.hexagonal-strip-prefix.stripprefix.prefixes=/hexagonal"
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    env_file:
+      - ./env/grafana.env
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./env/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+  traefik:
+    image: 'traefik:2.10.1'
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
