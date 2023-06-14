@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.7</version>
+        <version>2.7.12</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -18,9 +18,9 @@
 
     <properties>
         <java.version>11</java.version>
-        <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
         <jmolecules.version>1.6.0</jmolecules.version>
-        <jqassistant.version>2.0.0-RC2</jqassistant.version>
+        <jqassistant.version>2.0.3</jqassistant.version>
     </properties>
 
     <dependencies>
