@@ -9,19 +9,28 @@ jqassistant:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-context-mapper-plugin
       version: 2.0.0
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-plantuml-report-plugin
+      version: 2.0.1
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-graphml-plugin
+      version: 2.0.1
   scan:
     include:
       files:
-        - ${project.basedir}/jqassistant/context-mapper
+        - ${project.basedir}/src/docs/context-mapper
   analyze:
     rule:
       default-concept-severity: INFO
     groups:
       - jmolecules-ddd:Strict
       - jmolecules-hexagonal:Default
-      - context-map
-      - rest
+      - bounded-context
       - spring-boot:Strict
+      - rest
       - maven
+    execute-applied-concepts: true
     report:
       continue-on-failure: true
+      properties:
+        plantuml.report.rendermode: elk

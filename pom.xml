@@ -219,7 +219,7 @@
                         <version>2.2.4</version>
                         <executions>
                             <execution>
-                                <id>output-html</id>
+                                <id>default-cli</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>process-asciidoc</goal>
@@ -229,9 +229,8 @@
                                     <sourceDocumentName>arc42.adoc</sourceDocumentName>
                                     <attributes>
                                         <toc>left</toc>
-                                        <jqassistant-report-path>
-                                            ${project.build.directory}/jqassistant/jqassistant-report.xml
-                                        </jqassistant-report-path>
+                                        <imagesdir>./</imagesdir>
+                                        <jqassistant-report-path>${project.build.directory}/jqassistant/jqassistant-report.xml</jqassistant-report-path>
                                     </attributes>
                                     <logHandler>
                                         <outputToConsole>true</outputToConsole>

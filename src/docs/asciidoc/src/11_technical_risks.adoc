@@ -5,12 +5,13 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Overview
 
-include::jQAssistant:Summary[constraints="*"]
+include::jQAssistant:Summary[]
 
 === Details
 
 :leveloffset: +1
-include::jQAssistant:Rules[]
-:leveloffset: -1
 
+include::jQAssistant:Rules[]
+
+:leveloffset: -1
 

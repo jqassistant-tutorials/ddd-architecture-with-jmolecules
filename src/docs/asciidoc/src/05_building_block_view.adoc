@@ -9,9 +9,9 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Whitebox Overall System
 
-
-
 _**<Overview Diagram>**_
+
+image::bounded-context_ToBeReport.svg[width=200px]
 
 Motivation::
 
