@@ -6,11 +6,22 @@ jqassistant:
     - group-id: org.jqassistant.contrib.plugin
       artifact-id: jqassistant-jmolecules-plugin
       version: 1.4.0
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-context-mapper-plugin
+      version: 2.0.0
+  scan:
+    include:
+      files:
+        - ${project.basedir}/jqassistant/context-mapper
   analyze:
     rule:
       default-concept-severity: INFO
     groups:
       - jmolecules-ddd:Strict
       - jmolecules-hexagonal:Default
+      - context-map
+      - rest
       - spring-boot:Strict
-      - maven:Default
+      - maven
+    report:
+      continue-on-failure: true

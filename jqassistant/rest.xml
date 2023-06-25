@@ -1,0 +1,45 @@
+<jqassistant-rules
+        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+
+    <group id="rest">
+        <includeConstraint refId="rest:*"/>
+    </group>
+
+    <concept id="rest:DTO">
+        <description>
+            All classes with the name suffix "DTO" are Data Transfer Objects.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+                (dto:Type)
+            WHERE
+                dto.name ends with "DTO"
+            SET
+              dto:DTO
+            RETURN
+                dto as DTO
+            ORDER BY
+                dto.fqn
+            ]]></cypher>
+    </concept>
+
+    <constraint id="rest:DTOMustBeLocatedInModelPackage">
+        <requiresConcept refId="rest:DTO"/>
+        <description>
+            All DTO classes must be located in packages named "model".
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (package:Package)-[:CONTAINS]->(dto:DTO)
+            WHERE
+              package.name <> "model"
+            RETURN
+              dto as DTO
+            ORDER BY
+              dto.fqn
+        ]]></cypher>
+    </constraint>
+
+</jqassistant-rules>

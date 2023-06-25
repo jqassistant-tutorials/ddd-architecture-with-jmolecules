@@ -9,13 +9,13 @@
         </description>
         <cypher><![CDATA[
             MATCH
-                    (generated:Type)
+              (generated:Type)
             WHERE
-            generated.fqn starts with "org.jqassistant.demo.architecture.hexagonal.user"
+              generated.fqn starts with "org.jqassistant.demo.architecture.hexagonal.user"
             SET
-            generated:Generated
+              generated:Generated
             RETURN
-                    generated as GeneratedType
+              generated as GeneratedType
             ]]></cypher>
     </concept>
 
@@ -25,9 +25,9 @@
         </description>
         <cypher><![CDATA[
             MATCH
-                    (generated:Type)
-                WHERE
-                generated.fqn STARTS WITH 'org.jqassistant.demo.architecture.hexagonal.issue'
+             (generated:Type)
+            WHERE
+              generated.fqn STARTS WITH 'org.jqassistant.demo.architecture.hexagonal.issue'
             SET
             generated:Generated
             RETURN

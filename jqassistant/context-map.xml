@@ -1,0 +1,38 @@
+<jqassistant-rules
+        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+
+    <group id="context-map">
+        <includeConcept refId="context-map:*Report"/>
+    </group>
+
+    <concept id="context-map:ToBeReport">
+        <description>
+            All used Maven dependencies must be managed in a "dependencyManagement2 section.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext1:BoundedContext)
+            OPTIONAL MATCH
+              (boundedContext1)-[definesDependency:DEFINES_DEPENDENCY]->(boundedContext2:BoundedContext)
+            RETURN *
+        ]]></cypher>
+        <report type="context-mapper-diagram"/>
+    </concept>
+
+    <concept id="context-map:AsIsReport">
+        <description>
+            All used Maven dependencies must be managed in a "dependencyManagement2 section.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext1:BoundedContext)
+            OPTIONAL MATCH
+              (boundedContext1)-[dependsOn:DEPENDS_ON]->(boundedContext2:BoundedContext)
+            RETURN *
+        ]]></cypher>
+        <report type="context-mapper-diagram"/>
+    </concept>
+
+</jqassistant-rules>
