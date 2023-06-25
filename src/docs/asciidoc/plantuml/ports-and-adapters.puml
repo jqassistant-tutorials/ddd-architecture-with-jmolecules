@@ -2,8 +2,8 @@
 
 folder adapters {
   folder primary {
-    interface UserApi <<REST>> <<OpenApi>> <<Generated>>
-    class UserController <<Primary Adapter>>
+    interface UsersApi <<REST>> <<OpenApi>> <<Generated>>
+    class UsersApiController <<Primary Adapter>>
   }
   folder secondary {
     class UserRepositoryImpl <<Secondary Adapter>> <<Spring Data JPA>>
@@ -16,8 +16,8 @@ folder domain {
   interface UserRepository <<Secondary Port>>
 }
 
-UserApi <|-down- UserController
-UserController -down-> UserApplicationService
+UsersApi <|-down- UsersApiController
+UsersApiController -down-> UserApplicationService
 UserApplicationService -down-> UserDomainService
 UserDomainService -> UserRepository
 UserRepository <|- UserRepositoryImpl
