@@ -1,4 +1,4 @@
-ContextMap HexagonalContextMap {
+ContextMap IssueTrackerContextMap {
 	type = SYSTEM_LANDSCAPE
 	state = TO_BE
 
@@ -13,7 +13,7 @@ ContextMap HexagonalContextMap {
 BoundedContext Issue implements IssueDomain
 BoundedContext User implements UserDomain
 
-Domain HexagonalDomain {
+Domain IssueTrackerDomain {
 	Subdomain User {
 		type = GENERIC_SUBDOMAIN
 		domainVisionStatement = "Subdomain managing everything user-related."
