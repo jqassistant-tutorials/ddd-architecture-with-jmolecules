@@ -220,6 +220,9 @@
                         <configuration>
                             <encoding>UTF-8</encoding>
                             <sourceDocumentName>arc42.adoc</sourceDocumentName>
+                            <requires>
+                                <require>asciidoctor-diagram</require>
+                            </requires>
                             <attributes>
                                 <toc>left</toc>
                                 <imagesdir>./</imagesdir>
@@ -249,6 +252,11 @@
                                 <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
                                 <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
                                 <version>1.0.0-M1</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-diagram</artifactId>
+                                <version>2.2.9</version>
                             </dependency>
                         </dependencies>
                     </plugin>

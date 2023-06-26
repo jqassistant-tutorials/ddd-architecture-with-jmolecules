@@ -9,9 +9,11 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Whitebox Overall System
 
+On the top level the system is structured into bounded contexts.
+
 _**<Overview Diagram>**_
 
-image::bounded-context_ToBeReport.svg[width=200px]
+image::bounded-context_ToBeReport.svg[width=300px]
 
 Motivation::
 
@@ -65,7 +67,12 @@ _<black box template>_
 
 === Level 2
 
+Every bounded context is internally structured using the Ports and Adapters (Hexagonal) style.
 
+[plantuml]
+----
+include::../plantuml/ports-and-adapters.puml[]
+----
 
 ==== White Box _<building block 1>_
 
