@@ -1,0 +1,115 @@
+<jqassistant-rules
+        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+
+    <group id="bounded-context">
+        <includeConcept refId="bounded-context:*Report"/>
+    </group>
+
+    <concept id="bounded-context:ToBeReport">
+        <description>
+            To-Be context map report of Bounded Contexts.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext:BoundedContext)
+            OPTIONAL MATCH
+              (boundedContext)-[definesDependency:DEFINES_DEPENDENCY]->(:BoundedContext)
+            RETURN *
+        ]]></cypher>
+        <report type="context-mapper-diagram"/>
+    </concept>
+
+    <concept id="bounded-context:AsIsReport">
+        <description>
+            As-Is context map report of Bounded Contexts.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext:BoundedContext)
+            OPTIONAL MATCH
+              (boundedContext)-[dependsOn:DEPENDS_ON]->(:BoundedContext)
+            RETURN *
+        ]]></cypher>
+        <report type="context-mapper-diagram"/>
+    </concept>
+
+    <concept id="bounded-context:Layer">
+        <description>
+            A package within a Bounded Context package represents a technical Layer.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext:Package)-[:CONTAINS]->(:Type{name:"package-info"})-[:ANNOTATED_BY]->()-[:OF_TYPE]->(:Type{fqn:"org.jmolecules.ddd.annotation.BoundedContext"}),
+              (boundedContext)-[:CONTAINS]->(layer:Package)
+            SET
+              layer:Layer
+            RETURN
+              *
+        ]]></cypher>
+    </concept>
+
+    <constraint id="bounded-context:UndefinedLayer">
+        <requiresConcept refId="bounded-context:Layer" />
+        <description>
+            A layer package must be either "domain", "application", "adapters" and "domain".
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (undefinedLayer:Layer:Package)
+            WHERE
+              undefinedLayer.name not in ["domain", "application", "adapters", "domain"]
+            RETURN
+              undefinedLayer as `Undefined Layer`
+        ]]></cypher>
+    </constraint>
+
+    <concept id="bounded-context:LayerDependency">
+        <requiresConcept refId="bounded-context:Layer" />
+        <description>
+            The dependencies between classes in different layers define the dependencies between the layers.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (layer1:Layer)-[:CONTAINS*]->(type1:Type),
+              (layer2:Layer)-[:CONTAINS*]->(type2:Type),
+              (type1)-[dependsOn:DEPENDS_ON]->(type2)
+            WHERE
+              layer1 <> layer2
+            WITH
+              layer1, layer2, count(dependsOn) as coupling
+            MERGE
+              (layer1)-[dependsOnLayer:DEPENDS_ON_LAYER]->(layer2)
+            SET
+              dependsOnLayer.coupling = coupling
+            RETURN
+              layer1 as Layer, layer2 as `Layer Dependency`, coupling as Coupling
+            ORDER BY
+              layer1.fqn, layer2.fqn
+        ]]></cypher>
+    </concept>
+
+    <concept id="bounded-context:DependencyReport">
+        <requiresConcept refId="bounded-context:LayerDependency" />
+        <description>
+            Reports the dependencies between bounded contexts.
+        </description>
+        <cypher><![CDATA[
+            MATCH
+              (boundedContext:Package)-[:CONTAINS]->(layer:Layer)
+            OPTIONAL MATCH
+              (layer)-[dependsOnLayer:DEPENDS_ON_LAYER]->(layerDependency:Layer)
+            WHERE
+              layer <> layerDependency
+            RETURN {
+              role: "graph",
+              parent: boundedContext,
+              nodes: collect(layer),
+              relationships: collect(dependsOnLayer)
+            }
+        ]]></cypher>
+        <report type="plantuml-component-diagram,graphml"/>
+    </concept>
+
+</jqassistant-rules>

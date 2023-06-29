@@ -20,7 +20,7 @@
         <java.version>11</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <jmolecules.version>1.6.0</jmolecules.version>
-        <jqassistant.version>2.0.1</jqassistant.version>
+        <jqassistant.version>2.0.3</jqassistant.version>
     </properties>
 
     <dependencyManagement>
@@ -171,9 +171,14 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/user/adapters/primary/rest/v1/users.yml</inputSpec>
-                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model</modelPackage>
+                            <inputSpec>${project.basedir}/src/main/resources/user/adapters/primary/rest/v1/users.yml
+                            </inputSpec>
+                            <apiPackage>
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users
+                            </apiPackage>
+                            <modelPackage>
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model
+                            </modelPackage>
                         </configuration>
                     </execution>
                     <execution>
@@ -182,9 +187,14 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml</inputSpec>
-                            <apiPackage>org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues</apiPackage>
-                            <modelPackage>org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model</modelPackage>
+                            <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml
+                            </inputSpec>
+                            <apiPackage>
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues
+                            </apiPackage>
+                            <modelPackage>
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model
+                            </modelPackage>
                         </configuration>
                     </execution>
                 </executions>
@@ -247,6 +257,53 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <version>2.2.4</version>
+                        <configuration>
+                            <encoding>UTF-8</encoding>
+                            <sourceDocumentName>arc42.adoc</sourceDocumentName>
+                            <requires>
+                                <require>asciidoctor-diagram</require>
+                            </requires>
+                            <attributes>
+                                <toc>left</toc>
+                                <imagesdir>./</imagesdir>
+                                <jqassistant-report-path>${project.build.directory}/jqassistant/jqassistant-report.xml</jqassistant-report-path>
+                            </attributes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>default-cli</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>process-asciidoc</goal>
+                                </goals>
+                                <configuration>
+                                    <backend>html5</backend>
+                                    <logHandler>
+                                        <outputToConsole>true</outputToConsole>
+                                        <failIf>
+                                            <severity>WARN</severity>
+                                        </failIf>
+                                    </logHandler>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
+                                <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
+                                <version>1.0.0-M1</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-diagram</artifactId>
+                                <version>2.2.9</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>

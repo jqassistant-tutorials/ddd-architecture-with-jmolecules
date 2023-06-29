@@ -1,0 +1,25 @@
+ContextMap IssueTrackerContextMap {
+	type = SYSTEM_LANDSCAPE
+	state = TO_BE
+
+	contains User
+	contains Issue
+
+	User [U] -> [D] Issue
+}
+
+/* Bounded Context Definitions */
+
+BoundedContext Issue implements IssueDomain
+BoundedContext User implements UserDomain
+
+Domain IssueTrackerDomain {
+	Subdomain User {
+		type = GENERIC_SUBDOMAIN
+		domainVisionStatement = "Subdomain managing everything user-related."
+	}
+	Subdomain Issue {
+		type = CORE_DOMAIN
+		domainVisionStatement = "Subdomain managing issues."
+	}
+}
