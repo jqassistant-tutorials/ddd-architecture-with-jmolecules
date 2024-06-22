@@ -2,10 +2,10 @@ jqassistant:
   plugins:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-spring-plugin
-      version: 2.0.0
-    - group-id: org.jqassistant.contrib.plugin
+      version: 2.2.0-M1
+    - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-jmolecules-plugin
-      version: 1.4.0
+      version: 2.1.0-M4
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-context-mapper-plugin
       version: 2.0.0

@@ -102,11 +102,13 @@
               (layer)-[dependsOnLayer:DEPENDS_ON_LAYER]->(layerDependency:Layer)
             WHERE
               layer <> layerDependency
+            WITH
+              boundedContext, collect(layer) as layers, collect(dependsOnLayer) as layerDependencies
             RETURN {
               role: "graph",
               parent: boundedContext,
-              nodes: collect(layer),
-              relationships: collect(dependsOnLayer)
+              nodes: layers,
+              relationships: layerDependencies
             }
         ]]></cypher>
         <report type="plantuml-component-diagram,graphml"/>

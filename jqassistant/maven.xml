@@ -15,7 +15,7 @@
             MATCH
                     (project:Maven:Project)-[:HAS_MODEL]->(model)-[:DECLARES_DEPENDENCY]->()-[:TO_ARTIFACT]->(dependency:Artifact)
             WHERE
-                exists(dependency.version)
+                dependency.version is not null
             RETURN
                 project as Project, dependency as Dependency
             ORDER BY
