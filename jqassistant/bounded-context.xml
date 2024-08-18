@@ -1,10 +1,11 @@
 <jqassistant-rules
-        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns="http://schema.jqassistant.org/rule/v2.2"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.2 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-2.2.xsd">
 
     <group id="bounded-context">
         <includeConcept refId="bounded-context:*Report"/>
+        <includeConstraint refId="bounded-context:*"/>
     </group>
 
     <concept id="bounded-context:ToBeReport">
@@ -51,22 +52,22 @@
     </concept>
 
     <constraint id="bounded-context:UndefinedLayer">
-        <requiresConcept refId="bounded-context:Layer" />
+        <requiresConcept refId="bounded-context:Layer"/>
         <description>
             A layer package must be either "domain", "application", "adapters" and "domain".
         </description>
         <cypher><![CDATA[
             MATCH
               (undefinedLayer:Layer:Package)
-            WHERE
-              undefinedLayer.name not in ["domain", "application", "adapters", "domain"]
+            WHERE NOT
+              undefinedLayer.name in ["domain", "application", "adapters", "domain", "config"]
             RETURN
               undefinedLayer as `Undefined Layer`
         ]]></cypher>
     </constraint>
 
     <concept id="bounded-context:LayerDependency">
-        <requiresConcept refId="bounded-context:Layer" />
+        <requiresConcept refId="bounded-context:Layer"/>
         <description>
             The dependencies between classes in different layers define the dependencies between the layers.
         </description>
@@ -91,7 +92,7 @@
     </concept>
 
     <concept id="bounded-context:DependencyReport">
-        <requiresConcept refId="bounded-context:LayerDependency" />
+        <requiresConcept refId="bounded-context:LayerDependency"/>
         <description>
             Reports the dependencies between bounded contexts.
         </description>

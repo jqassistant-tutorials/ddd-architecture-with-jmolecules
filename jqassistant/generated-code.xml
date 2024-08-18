@@ -1,7 +1,7 @@
 <jqassistant-rules
-        xmlns="http://schema.jqassistant.org/rule/v1.11"
+        xmlns="http://schema.jqassistant.org/rule/v2.2"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schema.jqassistant.org/rule/v1.11 https://schema.jqassistant.org/rule/jqassistant-rule-v1.11.xsd">
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.2 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-2.2.xsd">
 
     <concept id="generated-code:UsersApi">
         <providesConcept refId="java:GeneratedType" />
