@@ -2,23 +2,34 @@ jqassistant:
   plugins:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-spring-plugin
-      version: 2.2.0-M1
+      version: 2.2.1
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-jmolecules-plugin
       version: 2.1.0-M4
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-context-mapper-plugin
-      version: 2.0.0
+      version: 2.1.0-M2
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-plantuml-report-plugin
       version: 2.0.1
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-graphml-plugin
-      version: 2.0.1
+      version: 2.1.0
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-codecharta-plugin
+      version: 1.0.0-M2
+  store:
+    embedded:
+      neo4j-plugins:
+        - group-id: org.neo4j.procedure
+          artifact-id: apoc-core
+          classifier: core
+          version: ${jqassistant.store.embedded.neo4j-version}
   scan:
     include:
       files:
         - ${project.basedir}/src/docs/context-mapper
+        - .git
   analyze:
     rule:
       default-concept-severity: INFO
@@ -29,6 +40,8 @@ jqassistant:
       - spring-boot:Strict
       - rest
       - maven
+    concepts:
+      - codecharta-java:TypeReport
     execute-applied-concepts: true
     report:
       continue-on-failure: true

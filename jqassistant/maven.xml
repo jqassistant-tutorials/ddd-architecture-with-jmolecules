@@ -9,7 +9,7 @@
 
     <constraint id="maven:DependencyMustBeManaged">
         <description>
-            All used Maven dependencies must be managed in a "dependencyManagement2 section.
+            All used Maven dependencies must be managed in a "dependencyManagement" section.
         </description>
         <cypher><![CDATA[
             MATCH
