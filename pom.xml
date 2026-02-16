@@ -17,7 +17,7 @@
     <description>Demo application for hexagonal architecture</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <jmolecules.version>2.0.1</jmolecules.version>
         <jqassistant.version>2.9.0</jqassistant.version>
@@ -218,7 +218,6 @@
                         <artifactId>asciidoctor-maven-plugin</artifactId>
                         <version>3.2.0</version>
                         <configuration>
-                            <encoding>UTF-8</encoding>
                             <sourceDocumentName>arc42.adoc</sourceDocumentName>
                             <requires>
                                 <require>asciidoctor-diagram</require>
@@ -257,6 +256,11 @@
                                 <groupId>org.asciidoctor</groupId>
                                 <artifactId>asciidoctorj-diagram</artifactId>
                                 <version>3.1.0</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-diagram-plantuml</artifactId>
+                                <version>1.2025.3</version>
                             </dependency>
                         </dependencies>
                     </plugin>
