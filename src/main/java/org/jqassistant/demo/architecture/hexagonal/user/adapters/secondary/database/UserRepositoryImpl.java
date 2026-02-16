@@ -1,7 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.secondary.database;
 
-import javax.persistence.EntityManager;
-
+import jakarta.persistence.EntityManager;
 import org.jmolecules.architecture.hexagonal.SecondaryAdapter;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.UserRepository;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;

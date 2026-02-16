@@ -1,5 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.ui;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
 import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
@@ -11,8 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.validation.Valid;
 
 /**
  * Implementation of a controller for the Thymeleaf based UI.

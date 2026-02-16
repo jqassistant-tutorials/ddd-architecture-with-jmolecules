@@ -1,5 +1,7 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1;
 
+import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
@@ -11,8 +13,6 @@ import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpStatus.CREATED;

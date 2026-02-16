@@ -1,7 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.issue.domain.model;
 
-import javax.persistence.Embeddable;
-
+import jakarta.persistence.Embeddable;
 import lombok.*;
 
 @Embeddable

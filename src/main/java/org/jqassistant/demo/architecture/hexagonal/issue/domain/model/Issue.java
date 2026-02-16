@@ -2,8 +2,7 @@ package org.jqassistant.demo.architecture.hexagonal.issue.domain.model;
 
 import java.util.List;
 
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 import lombok.*;
 import org.jmolecules.ddd.annotation.AggregateRoot;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
