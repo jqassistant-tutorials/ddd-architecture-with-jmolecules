@@ -20,7 +20,7 @@
         <java.version>11</java.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <jmolecules.version>2.0.1</jmolecules.version>
-        <jqassistant.version>2.8.0</jqassistant.version>
+        <jqassistant.version>2.9.0</jqassistant.version>
     </properties>
 
     <dependencies>
