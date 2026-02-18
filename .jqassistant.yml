@@ -27,6 +27,8 @@ jqassistant:
         - ${project.basedir}/src/docs/context-mapper
         - .git
   analyze:
+    baseline:
+      enabled: true
     rule:
       default-concept-severity: INFO
     groups:

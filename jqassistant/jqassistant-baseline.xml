@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jqassistant-baseline xmlns="http://schema.jqassistant.org/baseline/v2.4">
+    <constraint id="maven:DependencyMustBeManaged">
+        <row key="426734c8b4c3021badd809055bfbe68a3ed880ff3a640ea08b0a95bc3162944d">
+            <column name="Dependency">org.jmolecules:jmolecules-ddd:jar:${jmolecules.version}</column>
+            <column name="Project">hexagonal</column>
+        </row>
+        <row key="7415d782e78643adb99996fe11c8c6d92dc81a202bfdbc7e938ba526796ee789">
+            <column name="Dependency">org.mapstruct:mapstruct:jar:${mapstruct.version}</column>
+            <column name="Project">hexagonal</column>
+        </row>
+        <row key="79a4bed9390eac4945bfdcd9862170665f7ee3752ddc5ba4c013fe09e04d146f">
+            <column name="Dependency">org.jmolecules:jmolecules-hexagonal-architecture:jar:${jmolecules.version}</column>
+            <column name="Project">hexagonal</column>
+        </row>
+        <row key="a06be220455905817b1749facba16352d5e76b81a045763cacaab918c5bee8c8">
+            <column name="Dependency">org.openapitools:jackson-databind-nullable:jar:0.2.9</column>
+            <column name="Project">hexagonal</column>
+        </row>
+        <row key="c2b77e216156adcad5d06a871fd997af2c6a8a576f22e76883964cbc04f867c4">
+            <column name="Dependency">org.webjars:bootstrap:jar:5.3.8</column>
+            <column name="Project">hexagonal</column>
+        </row>
+        <row key="d67f634b61030bf55cad8c8458c958a2ab3215a40c443c393e54260196707dbb">
+            <column name="Dependency">io.swagger.core.v3:swagger-annotations:jar:2.2.8</column>
+            <column name="Project">hexagonal</column>
+        </row>
+    </constraint>
+    <constraint id="spring-boot:AllTypesInApplicationPackage">
+        <row key="8a71d258b805ef84597a9b55bd16fe2c597328ae781e2e675a6d13fd107e3806">
+            <column name="Application">org.jqassistant.demo.architecture.hexagonal.Application</column>
+            <column name="ApplicationPackage">org.jqassistant.demo.architecture.hexagonal</column>
+            <column name="TypeOutsideApplicationPackage">org.openapitools.configuration.EnumConverterConfiguration$1</column>
+        </row>
+        <row key="b209a30e285bf2407c9e8e4bdc5e617d89641081355c3262a4e8e0d55041059b">
+            <column name="Application">org.jqassistant.demo.architecture.hexagonal.Application</column>
+            <column name="ApplicationPackage">org.jqassistant.demo.architecture.hexagonal</column>
+            <column name="TypeOutsideApplicationPackage">org.openapitools.configuration.EnumConverterConfiguration</column>
+        </row>
+    </constraint>
+</jqassistant-baseline>
