@@ -126,6 +126,7 @@
                         <interfaceOnly>true</interfaceOnly>
                         <skipDefaultInterface>true</skipDefaultInterface>
                         <useJakartaEe>true</useJakartaEe>
+                        <configPackage>org.jqassistant.demo.architecture.hexagonal.adapters.shared</configPackage>
                     </configOptions>
                 </configuration>
                 <executions>
