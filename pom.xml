@@ -204,6 +204,9 @@
     <profiles>
         <profile>
             <id>jQA</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
