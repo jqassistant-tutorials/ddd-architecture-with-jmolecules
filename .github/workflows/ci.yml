@@ -17,19 +17,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  prepare:
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ts-graphviz/setup-graphviz@v1
-  build:
-    needs: prepare
-    uses: jqassistant-tooling/jqassistant-github-actions/.github/workflows/ci.yml@main
-    with:
-      java_test_versions: '[25]' # use versions supported by Spring
-      publish_snapshots: false
-    secrets:
-      ossrh_username: ${{ secrets.OSSRH_USERNAME }}
-      ossrh_password: ${{ secrets.OSSRH_PASSWORD }}
-      ossrh_signing_key: ${{ secrets.OSSRH_SIGNING_KEY }}
-      ossrh_signing_password: ${{ secrets.OSSRH_SIGNING_PASSWORD }}
-      sonar_token: ${{ secrets.SONAR_TOKEN }}
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 25
+          cache: 'maven'
+      - uses: s4u/maven-settings-action@v3.0.0
+        with:
+          sonatypeSnapshots: true
+      - name: Build and test
+        run: mvn --batch-mode verify
+
