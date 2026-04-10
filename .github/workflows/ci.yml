@@ -17,10 +17,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ts-graphviz/setup-graphviz@v1
   build:
+    needs: prepare
     uses: jqassistant-tooling/jqassistant-github-actions/.github/workflows/ci.yml@main
     with:
-      java_test_versions: '[21]' # use versions supported by last Spring version
+      java_test_versions: '[25]' # use versions supported by Spring
       publish_snapshots: false
     secrets:
       ossrh_username: ${{ secrets.OSSRH_USERNAME }}
