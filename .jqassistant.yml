@@ -18,6 +18,9 @@ jqassistant:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-codecharta-plugin
       version: 1.0.0
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-sarif-report-plugin
+      version: 1.0.0-M1
   store:
     embedded:
       apoc-enabled: true
@@ -43,3 +46,8 @@ jqassistant:
       continue-on-failure: true
       properties:
         plantuml.report.rendermode: elk
+        sarif:
+          report:
+            message:
+              text: full
+              markdown: none

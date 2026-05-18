@@ -20,6 +20,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
     steps:
       - uses: actions/checkout@v6
       - uses: ts-graphviz/setup-graphviz@v2
@@ -33,4 +36,11 @@ jobs:
           sonatypeSnapshots: true
       - name: Build and test
         run: mvn --batch-mode verify
+      - name: Upload SARIF-Report
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: ./target/jqassistant/report/sarif//jqassistant-sarif-report.json
+          category: jQAssistant
+          ref: ${{ github.ref }}
+          sha: ${{ github.sha }}
 
