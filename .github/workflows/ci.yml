@@ -43,4 +43,13 @@ jobs:
           category: jQAssistant
           ref: ${{ github.ref }}
           sha: ${{ github.sha }}
+      - name: Analyze
+        run: |
+          mvn --batch-mode sonar:sonar \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.projectKey=ddd-architecture-with-jmolecules \
+          -Dsonar.organization=jqassistant-tutorials \
+          -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
+        env:
+          SONAR_TOKEN: ${{ secrets.sonar_token }}
 
