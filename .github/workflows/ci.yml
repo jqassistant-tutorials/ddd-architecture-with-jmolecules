@@ -53,8 +53,7 @@ jobs:
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
           -Dsonar.organization="jqassistant-tutorials" \
-          -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json \
-          -X
+          -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
