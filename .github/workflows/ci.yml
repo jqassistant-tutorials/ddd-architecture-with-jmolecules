@@ -15,8 +15,6 @@ on:
     secrets:
       SONAR_TOKEN:
         required: true
-      GITHUB_TOKEN:
-        required: true
 
 concurrency:
   group: build-java-${{ github.ref }}
