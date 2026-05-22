@@ -27,6 +27,7 @@ jobs:
     permissions:
       security-events: write
       contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v6
       - uses: ts-graphviz/setup-graphviz@v2
@@ -56,4 +57,5 @@ jobs:
           -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
