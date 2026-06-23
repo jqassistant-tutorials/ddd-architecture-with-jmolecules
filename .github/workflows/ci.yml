@@ -11,6 +11,10 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+  workflow_call:
+    secrets:
+      SONAR_TOKEN:
+        required: true
 
 concurrency:
   group: build-java-${{ github.ref }}
@@ -20,6 +24,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v7
       - uses: ts-graphviz/setup-graphviz@v2
@@ -31,6 +39,26 @@ jobs:
       - uses: s4u/maven-settings-action@v4.0.0
         with:
           sonatypeSnapshots: true
+          
       - name: Build and test
         run: mvn --batch-mode verify
+        
+      - name: Upload SARIF-Report
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: ./target/jqassistant/report/sarif/jqassistant-sarif-report.json
+          category: jQAssistant
+          ref: ${{ github.ref }}
+          sha: ${{ github.sha }}
+          
+      - name: Analyze
+        run: |
+          mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:5.6.0.6792:sonar \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
+          -Dsonar.organization="jqassistant-tutorials" \
+          -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
