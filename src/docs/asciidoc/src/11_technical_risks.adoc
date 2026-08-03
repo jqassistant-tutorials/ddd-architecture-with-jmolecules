@@ -9,9 +9,6 @@ include::jQAssistant:Summary[constraints="*"]
 
 === Details
 
-:leveloffset: +1
+include::jQAssistant:Rules[constraints="*", leveloffset=+3]
 
-include::jQAssistant:Rules[constraints="*"]
-
-:leveloffset: -1
 
