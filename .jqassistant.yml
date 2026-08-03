@@ -39,6 +39,8 @@ jqassistant:
     concepts:
       - codecharta-java:TypeReport
     execute-applied-concepts: true
+    baseline:
+      enabled: true
     report:
       continue-on-failure: true
       properties:

@@ -29,9 +29,9 @@
             WHERE
               generated.fqn STARTS WITH 'org.jqassistant.demo.architecture.hexagonal.issue'
             SET
-            generated:Generated
+              generated:Generated
             RETURN
-                    generated AS GeneratedType
+              generated AS GeneratedType
             ]]></cypher>
     </concept>
 
