@@ -78,6 +78,12 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.buschmais.jqassistant.plugin</groupId>
+            <artifactId>java-annotation</artifactId>
+            <version>${jqassistant.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <!-- jMolecules -->
         <dependency>
             <groupId>org.jmolecules</groupId>
@@ -126,7 +132,7 @@
                         <interfaceOnly>true</interfaceOnly>
                         <skipDefaultInterface>true</skipDefaultInterface>
                         <useJakartaEe>true</useJakartaEe>
-                        <configPackage>org.jqassistant.demo.architecture.hexagonal.adapters.shared</configPackage>
+                        <configPackage>org.jqassistant.demo.architecture.hexagonal.adapters.shared.api</configPackage>
                     </configOptions>
                 </configuration>
                 <executions>
@@ -139,10 +145,10 @@
                             <inputSpec>${project.basedir}/src/main/resources/user/adapters/primary/rest/v1/users.yml
                             </inputSpec>
                             <apiPackage>
-                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.api
                             </apiPackage>
                             <modelPackage>
-                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.api.model
                             </modelPackage>
                         </configuration>
                     </execution>
@@ -155,10 +161,10 @@
                             <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml
                             </inputSpec>
                             <apiPackage>
-                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api
                             </apiPackage>
                             <modelPackage>
-                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model
                             </modelPackage>
                         </configuration>
                     </execution>

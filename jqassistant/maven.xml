@@ -1,7 +1,7 @@
 <jqassistant-rules
-        xmlns="http://schema.jqassistant.org/rule/v2.2"
+        xmlns="http://schema.jqassistant.org/rule/v2.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.2 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-2.2.xsd">
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.9 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-v2.9.xsd">
 
     <group id="maven">
         <includeConstraint refId="maven:*"/>

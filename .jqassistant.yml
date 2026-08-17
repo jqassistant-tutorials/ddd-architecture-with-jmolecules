@@ -2,7 +2,7 @@ jqassistant:
   plugins:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-spring-plugin
-      version: 2.5.0
+      version: 2.8.1
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-jmolecules-plugin
       version: 2.1.0-M4
@@ -33,9 +33,9 @@ jqassistant:
       - jmolecules-ddd:Strict
       - jmolecules-hexagonal:Default
       - bounded-context
-      - spring-boot:Strict
       - rest
       - maven
+      - spring-boot:Strict
     concepts:
       - codecharta-java:TypeReport
     execute-applied-concepts: true

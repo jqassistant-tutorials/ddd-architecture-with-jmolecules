@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <jqassistant-baseline xmlns="http://schema.jqassistant.org/baseline/v2.4">
     <constraint id="maven:DependencyMustBeManaged">
-        <row key="f22da234ece191d3af9549bb45f06072b32e9d88446ff4a2b7f8ea279c92ebbf">
-            <column name="Dependency">io.swagger.core.v3:swagger-annotations:jar:2.2.52</column>
+        <row key="cd675cee3aad7e4027bba5b165a4fd2e0f07df0592b7ea112af26fc5b76085da">
+            <column name="Dependency">com.buschmais.jqassistant.plugin:java-annotation:jar:${jqassistant.version}</column>
             <column name="Project">hexagonal</column>
         </row>
     </constraint>

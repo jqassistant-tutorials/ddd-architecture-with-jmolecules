@@ -1,37 +1,28 @@
 <jqassistant-rules
-        xmlns="http://schema.jqassistant.org/rule/v2.2"
+        xmlns="http://schema.jqassistant.org/rule/v2.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.2 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-2.2.xsd">
+        xsi:schemaLocation="http://schema.jqassistant.org/rule/v2.9 https://jqassistant.github.io/jqassistant/current/schema/jqassistant-rule-v2.9.xsd">
 
-    <concept id="generated-code:UsersApi">
+    <concept id="generated-code:OpenApi">
         <providesConcept refId="java:GeneratedType" />
         <description>
         </description>
         <cypher><![CDATA[
+            WITH [
+                "org.jqassistant.demo.architecture.hexagonal.adapters.shared.api",
+                "org.jqassistant.demo.architecture.hexagonal.user.api",
+                "org.jqassistant.demo.architecture.hexagonal.issue.api"
+            ] as openApiPackages
+            UNWIND
+              openApiPackages as openApiPackage
             MATCH
               (generated:Type)
             WHERE
-              generated.fqn starts with "org.jqassistant.demo.architecture.hexagonal.user"
+              generated.fqn starts with openApiPackage
             SET
               generated:Generated
             RETURN
               generated as GeneratedType
-            ]]></cypher>
-    </concept>
-
-    <concept id="generated-code:IssuesApi">
-        <providesConcept refId="java:GeneratedType" />
-        <description>
-        </description>
-        <cypher><![CDATA[
-            MATCH
-             (generated:Type)
-            WHERE
-              generated.fqn STARTS WITH 'org.jqassistant.demo.architecture.hexagonal.issue'
-            SET
-              generated:Generated
-            RETURN
-              generated AS GeneratedType
             ]]></cypher>
     </concept>
 
