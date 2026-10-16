@@ -78,6 +78,12 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- jQAssistant -->
+        <dependency>
+            <groupId>com.buschmais.jqassistant.plugin</groupId>
+            <artifactId>java-annotation</artifactId>
+            <version>${jqassistant.version}</version>
+        </dependency>
         <!-- jMolecules -->
         <dependency>
             <groupId>org.jmolecules</groupId>
