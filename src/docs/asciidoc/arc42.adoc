@@ -6,7 +6,9 @@
 // configure EN settings for asciidoc
 include::src/config.adoc[]
 
-= image:arc42-logo.png[arc42] arc42
+= arc42 Document Title
+image:arc42-logo.png[arc42]
+
 :revnumber: 8.2 EN
 :revdate: January 2023
 :revremark: (based upon AsciiDoc version)

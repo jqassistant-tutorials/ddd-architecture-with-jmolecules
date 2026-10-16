@@ -20,7 +20,12 @@
         <java.version>25</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <jmolecules.version>2.0.1</jmolecules.version>
-        <jqassistant.version>2.10.0-M2</jqassistant.version>
+        <jqassistant.version>2.10.0-M3</jqassistant.version>
+        <confluence.url>https://buschmais.atlassian.net/wiki</confluence.url>
+        <confluence.spaceKey>development</confluence.spaceKey>
+        <confluence.ancestorId>80052225</confluence.ancestorId>
+        <confluence.convertOnly>true</confluence.convertOnly>
+        <jqassistant-report-path>${session.executionRootDirectory}/target/jqassistant/jqassistant-report.xml</jqassistant-report-path>
     </properties>
 
     <dependencies>
@@ -266,7 +271,52 @@
                             <dependency>
                                 <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
                                 <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
-                                <version>1.1.1</version>
+                                <version>1.2.0-SNAPSHOT</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-diagram</artifactId>
+                                <version>3.2.1</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.asciidoctor</groupId>
+                                <artifactId>asciidoctorj-diagram-plantuml</artifactId>
+                                <version>1.2026.2</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sahli.asciidoc.confluence.publisher</groupId>
+                        <artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
+                        <version>0.35.0</version>
+                        <executions>
+                            <execution>
+                                <id>default-cli</id>
+                                <goals>
+                                    <goal>publish</goal>
+                                </goals>
+                                <phase>verify</phase>
+                                <configuration>
+                                    <asciidocRootFolder>src/docs/asciidoc/</asciidocRootFolder>
+                                    <rootConfluenceUrl>${confluence.url}</rootConfluenceUrl>
+                                    <serverId>confluence</serverId>
+                                    <spaceKey>${confluence.spaceKey}</spaceKey>
+                                    <ancestorId>${confluence.ancestorId}</ancestorId>
+                                    <convertOnly>${confluence.convertOnly}</convertOnly>
+                                    <notifyWatchers>false</notifyWatchers>
+                                    <maxRequestsPerSecond>10</maxRequestsPerSecond>
+                                    <attributes>
+                                        <confluence />
+                                        <jqassistant-report-path>${jqassistant-report-path}</jqassistant-report-path>
+                                    </attributes>
+                                </configuration>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
+                                <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
+                                <version>1.2.0-SNAPSHOT</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.asciidoctor</groupId>

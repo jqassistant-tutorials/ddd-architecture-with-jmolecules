@@ -13,8 +13,6 @@ On the top level the system is structured into bounded contexts.
 
 _**<Overview Diagram>**_
 
-image::bounded-context_ToBeReport.svg[width=300px]
-
 Motivation::
 
 _<text explanation>_
