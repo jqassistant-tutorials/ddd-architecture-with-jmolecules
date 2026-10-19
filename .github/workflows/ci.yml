@@ -13,6 +13,8 @@ on:
   workflow_dispatch: {}
   workflow_call:
     secrets:
+      SONARCLOUD_TOKEN:
+        required: true
       SONAR_TOKEN:
         required: true
 
@@ -51,7 +53,7 @@ jobs:
               -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
           fi
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Execute Sonarqube analysis
         run: |
