@@ -39,7 +39,8 @@ jobs:
             mvn --batch-mode sonar:sonar \
             -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
             -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-            -Dsonar.organization="jqassistant-tutorials"          
+            -Dsonar.organization="jqassistant-tutorials"   
+            -Dsonar.sarifReportPaths="target/jqassistant/report/sarif/jqassistant-sarif-report.json"
           fi
         env:
           SONAR_TOKEN: ${{ secrets.sonar_token }}
