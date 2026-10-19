@@ -33,17 +33,6 @@ jobs:
           sonatypeSnapshots: true
       - name: Build and test
         run: mvn --batch-mode verify
-      - name: Execute Sonarqube analysis
-        run: |
-          if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
-            mvn --batch-mode sonar:sonar \
-            -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
-            -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-            -Dsonar.organization="jqassistant-tutorials"   
-            -Dsonar.sarifReportPaths="target/jqassistant/report/sarif/jqassistant-sarif-report.json"
-          fi
-        env:
-          SONAR_TOKEN: ${{ secrets.sonar_token }}
       - name: Upload SARIF to SonarCloud
         run: |
           if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" ]]; then
@@ -56,6 +45,18 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.sonarcloud_token}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Execute Sonarqube analysis
+        run: |
+          if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
+            mvn --batch-mode sonar:sonar \
+            -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
+            -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
+            -Dsonar.organization="jqassistant-tutorials"   
+            -Dsonar.sarifReportPaths="target/jqassistant/report/sarif/jqassistant-sarif-report.json"
+          fi
+        env:
+          SONAR_TOKEN: ${{ secrets.sonar_token }}
+
 
 
 
