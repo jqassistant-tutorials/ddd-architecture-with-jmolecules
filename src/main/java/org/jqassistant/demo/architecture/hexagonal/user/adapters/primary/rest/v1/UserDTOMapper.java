@@ -1,6 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1;
 
-import org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model.UserDTO;
+import org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.api.model.UserDTO;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.mapstruct.Mapper;
 

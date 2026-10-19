@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jqassistant-baseline xmlns="http://schema.jqassistant.org/baseline/v2.4">
+    <constraint id="maven:DependencyMustBeManaged">
+        <row key="cd675cee3aad7e4027bba5b165a4fd2e0f07df0592b7ea112af26fc5b76085da">
+            <column name="Dependency">com.buschmais.jqassistant.plugin:java-annotation:jar:${jqassistant.version}</column>
+            <column name="Project">hexagonal</column>
+        </row>
+    </constraint>
+</jqassistant-baseline>
