@@ -17,9 +17,9 @@
             WHERE
                 dependency.version is not null
             RETURN
-                project as Project, dependency as Dependency
+                model as Model, project as Project, dependency as Dependency
             ORDER BY
-                project.fqn, dependency.fqn
+                model, project.fqn, dependency.fqn
             ]]></cypher>
     </constraint>
 

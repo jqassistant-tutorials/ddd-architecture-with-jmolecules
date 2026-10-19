@@ -11,6 +11,12 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+  workflow_call:
+    secrets:
+      SONARCLOUD_TOKEN:
+        required: true
+      SONAR_TOKEN:
+        required: true
 
 concurrency:
   group: build-java-${{ github.ref }}
@@ -20,6 +26,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v7
       - uses: ts-graphviz/setup-graphviz@v2
@@ -33,4 +43,26 @@ jobs:
           sonatypeSnapshots: true
       - name: Build and test
         run: mvn --batch-mode verify
-
+      - name: Execute Sonarqube analysis
+        run: |
+          if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
+            mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
+            -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
+            -Dsonar.organization="jqassistant-tutorials" \
+            -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
+          fi
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Upload SARIF to SonarCloud
+        run: |
+          if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" && '${{ inputs.sonar_project_key }}' != '' && "${{ inputs.publish_sarif }}" == "true" ]]; then
+              mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.projectKey=${{ inputs.sonar_project_key }} \
+              -Dsonar.organization=${{inputs.sonar_organization}} \
+              -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
+          fi
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
