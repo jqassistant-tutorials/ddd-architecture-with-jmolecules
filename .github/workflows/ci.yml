@@ -43,18 +43,6 @@ jobs:
           sonatypeSnapshots: true
       - name: Build and test
         run: mvn --batch-mode verify
-      - name: Upload SARIF to SonarCloud
-        run: |
-          if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" ]]; then
-              mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-              -Dsonar.organization="jqassistant-tutorials" \
-              -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
-          fi
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Execute Sonarqube analysis
         run: |
           if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
