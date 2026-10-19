@@ -48,7 +48,7 @@ jobs:
       - name: Execute Sonarqube analysis
         run: |
           if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
-            mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            mvn --batch-mode sonar:sonar \
             -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
             -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
             -Dsonar.organization="jqassistant-tutorials"   
@@ -56,6 +56,7 @@ jobs:
           fi
         env:
           SONAR_TOKEN: ${{ secrets.sonar_token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
 
