@@ -11,6 +11,13 @@ on:
     branches:
       - main
   workflow_dispatch: {}
+  workflow_call:
+    secrets:
+      CONFLUENCE_USERNAME:
+        required: true
+
+
+
 
 concurrency:
   group: build-java-${{ github.ref }}
