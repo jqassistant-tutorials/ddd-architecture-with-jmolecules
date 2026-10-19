@@ -51,7 +51,7 @@ jobs:
               -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
           fi
         env:
-          SONAR_TOKEN: ${{ secrets.sonar_token}}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Execute Sonarqube analysis
         run: |
@@ -63,4 +63,4 @@ jobs:
             -Dsonar.sarifReportPaths="target/jqassistant/report/sarif/jqassistant-sarif-report.json"
           fi
         env:
-          SONAR_TOKEN: ${{ secrets.sonar_token }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
