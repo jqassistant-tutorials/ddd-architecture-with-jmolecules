@@ -4,7 +4,7 @@
 // ====================================
 
 // configure EN settings for asciidoc
-include::src/config.adoc[]
+include::src/_config.adoc[]
 
 = arc42 Document Title
 image:arc42-logo.png[arc42]
@@ -31,7 +31,7 @@ ifdef::backend-html5[]
 endif::backend-html5[]
 
 
-include::src/about-arc42.adoc[]
+include::src/_about-arc42.adoc[]
 
 // horizontal line
 ***

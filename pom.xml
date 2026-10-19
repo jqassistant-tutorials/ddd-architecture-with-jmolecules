@@ -21,6 +21,9 @@
         <mapstruct.version>1.6.3</mapstruct.version>
         <jmolecules.version>2.0.1</jmolecules.version>
         <jqassistant.version>2.10.0-M3</jqassistant.version>
+        <asciidoctorj.extension.version>1.2.0-SNAPSHOT</asciidoctorj.extension.version>
+        <asciidoctorj.diagram.version>3.2.1</asciidoctorj.diagram.version>
+        <asciidoctorj.plantuml.version>1.2026.2</asciidoctorj.plantuml.version>
         <confluence.url>https://buschmais.atlassian.net/wiki</confluence.url>
         <confluence.spaceKey>development</confluence.spaceKey>
         <confluence.ancestorId>80052225</confluence.ancestorId>
@@ -271,17 +274,17 @@
                             <dependency>
                                 <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
                                 <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
-                                <version>1.2.0-SNAPSHOT</version>
+                                <version>${asciidoctorj.extension.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.asciidoctor</groupId>
                                 <artifactId>asciidoctorj-diagram</artifactId>
-                                <version>3.2.1</version>
+                                <version>${asciidoctorj.diagram.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.asciidoctor</groupId>
                                 <artifactId>asciidoctorj-diagram-plantuml</artifactId>
-                                <version>1.2026.2</version>
+                                <version>${asciidoctorj.plantuml.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
@@ -297,7 +300,7 @@
                                 </goals>
                                 <phase>verify</phase>
                                 <configuration>
-                                    <asciidocRootFolder>src/docs/asciidoc/</asciidocRootFolder>
+                                    <asciidocRootFolder>src/docs/asciidoc/src</asciidocRootFolder>
                                     <rootConfluenceUrl>${confluence.url}</rootConfluenceUrl>
                                     <serverId>confluence</serverId>
                                     <spaceKey>${confluence.spaceKey}</spaceKey>
@@ -316,17 +319,17 @@
                             <dependency>
                                 <groupId>org.jqassistant.tooling.asciidoctorj</groupId>
                                 <artifactId>jqassistant-asciidoctorj-extensions</artifactId>
-                                <version>1.2.0-SNAPSHOT</version>
+                                <version>${asciidoctorj.extension.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.asciidoctor</groupId>
                                 <artifactId>asciidoctorj-diagram</artifactId>
-                                <version>3.2.1</version>
+                                <version>${asciidoctorj.diagram.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.asciidoctor</groupId>
                                 <artifactId>asciidoctorj-diagram-plantuml</artifactId>
-                                <version>1.2026.2</version>
+                                <version>${asciidoctorj.plantuml.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
