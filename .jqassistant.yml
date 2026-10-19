@@ -17,7 +17,7 @@ jqassistant:
       version: 2.1.0
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-codecharta-plugin
-      version: 1.0.0
+      version: 1.0.1
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-sarif-report-plugin
       version: 1.0.0-M1
