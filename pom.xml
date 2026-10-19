@@ -303,6 +303,7 @@
                                     <asciidocRootFolder>src/docs/asciidoc/src</asciidocRootFolder>
                                     <rootConfluenceUrl>${confluence.url}</rootConfluenceUrl>
                                     <serverId>confluence</serverId>
+                                    <pageTitlePrefix xml:space="preserve">[DDD]</pageTitlePrefix>
                                     <spaceKey>${confluence.spaceKey}</spaceKey>
                                     <ancestorId>${confluence.ancestorId}</ancestorId>
                                     <convertOnly>${confluence.convertOnly}</convertOnly>
