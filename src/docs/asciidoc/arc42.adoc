@@ -37,11 +37,6 @@ include::src/_about-arc42.adoc[]
 ***
 
 
-
-
-// numbering from here on
-:numbered:
-
 <<<<
 // 1. Introduction and Goals
 include::src/01_introduction_and_goals.adoc[]
@@ -52,7 +47,7 @@ include::src/02_architecture_constraints.adoc[]
 
 <<<<
 // 3. System Scope and Context
-include::src/03_system_scope_and_context.adoc[]
+include::src/03_context_and_scope.adoc[]
 
 <<<<
 // 4. Solution Strategy

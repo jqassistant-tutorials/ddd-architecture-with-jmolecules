@@ -33,4 +33,9 @@ jobs:
           sonatypeSnapshots: true
       - name: Build and test
         run: mvn --batch-mode verify
+      - name: Deploy snapshot and publish to Confluence
+        run: mvn deploy --batch-mode -DskipTests -Dconfluence.convertOnly=false
+        env:
+          CONFLUENCE_USERNAME: ${{ secrets.CONFLUENCE_USERNAME }}
+          CONFLUENCE_PASSWORD: ${{ secrets.CONFLUENCE_PASSWORD }}
 
