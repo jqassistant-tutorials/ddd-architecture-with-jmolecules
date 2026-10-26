@@ -41,6 +41,7 @@ jobs:
       - uses: s4u/maven-settings-action@v4.0.0
         with:
           sonatypeSnapshots: true
+          
       - name: Build and test
         run: mvn --batch-mode verify
       - name: Execute Sonarqube analysis
