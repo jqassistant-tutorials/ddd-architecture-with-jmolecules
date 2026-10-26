@@ -52,5 +52,5 @@ jqassistant:
         sarif:
           report:
             message:
-              text: title
-              markdown: details
+              text: full
+              markdown: none
