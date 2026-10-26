@@ -1,0 +1,214 @@
+{
+  "$schema" : "https://json.schemastore.org/sarif-2.1.0.json",
+  "version" : "2.1.0",
+  "runs" : [ {
+    "tool" : {
+      "driver" : {
+        "name" : "jQAssistant",
+        "rules" : [ {
+          "id" : "rest:DTOMustBeLocatedInModelPackage",
+          "shortDescription": {
+            "text": "All DTO classes must be located in packages named \"model\"."
+          },
+          "fullDescription": {
+            "text": "DTO: org.jqassistant.demo.architecture.hexagonal.shared.adapters.primary.rest.exception.ErrorDTO",
+            "markdown": "| DTO |\n| --- |\n| org.jqassistant.demo.architecture.hexagonal.shared.adapters.primary.rest.exception.ErrorDTO |"
+          },
+          "defaultConfiguration" : {
+            "level" : "error"
+          }
+        }, {
+          "id" : "maven:DependencyMustBeManaged",
+          "defaultConfiguration" : {
+            "level" : "error"
+          }
+        } ]
+      }
+    },
+    "results" : [ {
+      "ruleId" : "rest:DTOMustBeLocatedInModelPackage",
+      "message" : {
+        "text" : "All DTO classes must be located in packages named \"model\". |DTO: org.jqassistant.demo.architecture.hexagonal.shared.adapters.primary.rest.exception.ErrorDTO "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "src/main/java/org/jqassistant/demo/architecture/hexagonal/shared/adapters/primary/rest/exception/ErrorDTO.java"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "ae5977613eee6dc61d877de9e5fbdeeffb694619c1ccdbc776f35a98d6e26c9f"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]rest:DTOMustBeLocatedInModelPackage"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: com.buschmais.jqassistant.plugin:java-annotation:jar:${jqassistant.version} "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "4593e082de42fa9b60b0ad5bff40ebfdf6869651ee371951cdaf5895c8e4dcc1"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: io.swagger.core.v3:swagger-annotations:jar:2.2.55 "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "9b1c8b1299054ec29988fa5e028e5ed0e5b02ad017128291825ccd9ad9aad57f"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.jmolecules:jmolecules-ddd:jar:${jmolecules.version} "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "45f7c093ea97d77ef20aa578b8d36b725436c62abd08c2ecf5b1df14a1ff4f13"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.jmolecules:jmolecules-hexagonal-architecture:jar:${jmolecules.version} "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "e32c7ed1712eb919fbd5fdb355ea2f3f2790b7214fa7370307803d22db4d62ba"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.mapstruct:mapstruct:jar:${mapstruct.version} "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "cc1a3246ca4bfa759a9e7e9f6a2d1a9d8307dd6398f908f167501e9341cb0871"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.openapitools:jackson-databind-nullable:jar:0.2.12 "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "6cbe2c6d49b3d3ae1fabebd24b62047be7b12bf744e22bf33d7a86e9a562fd8f"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    }, {
+      "ruleId" : "maven:DependencyMustBeManaged",
+      "message" : {
+        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.webjars:bootstrap:jar:5.3.8 "
+      },
+      "locations" : [ {
+        "physicalLocation" : {
+          "artifactLocation" : {
+            "uri" : "pom.xml"
+          },
+          "region" : {
+            "startLine" : 1,
+            "endLine" : 1
+          }
+        }
+      } ],
+      "partialFingerprints" : {
+        "rowKey" : "100ff3f566ad8b759fbbebe6a9ea757137cc78084707a047005167776190661a"
+      },
+      "properties" : {
+        "type" : "issue",
+        "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
+      }
+    } ]
+  } ]
+}
