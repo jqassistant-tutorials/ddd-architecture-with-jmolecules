@@ -4,9 +4,11 @@
 // ====================================
 
 // configure EN settings for asciidoc
-include::src/config.adoc[]
+include::src/_config.adoc[]
 
-= image:arc42-logo.png[arc42] arc42
+= arc42 Document Title
+image:arc42-logo.png[arc42]
+
 :revnumber: 8.2 EN
 :revdate: January 2023
 :revremark: (based upon AsciiDoc version)
@@ -29,16 +31,11 @@ ifdef::backend-html5[]
 endif::backend-html5[]
 
 
-include::src/about-arc42.adoc[]
+include::src/_about-arc42.adoc[]
 
 // horizontal line
 ***
 
-
-
-
-// numbering from here on
-:numbered:
 
 <<<<
 // 1. Introduction and Goals
@@ -50,7 +47,7 @@ include::src/02_architecture_constraints.adoc[]
 
 <<<<
 // 3. System Scope and Context
-include::src/03_system_scope_and_context.adoc[]
+include::src/03_context_and_scope.adoc[]
 
 <<<<
 // 4. Solution Strategy
