@@ -69,10 +69,21 @@
         "physicalLocation": {
           "artifactLocation": {
             "uri": "src/main/java/org/jqassistant/demo/architecture/hexagonal/user/application/UserApplicationService.java"
+          },
+          "region": {
+            "startLine": 4,
+            "endLine": 7
           }
         }
       }
-      ]
+      ],
+      "partialFingerprints": {
+        "rowKey": "6c98bd45940a84c7b0e330c92b448fd2d838e1a4bd7a624416db5efa3712c141"
+      },
+      "properties": {
+        "type": "issue",
+        "check_name": "[jQAssistant]anotherRule"
+      }
     }, {
       "ruleId" : "maven:DependencyMustBeManaged",
       "message" : {
