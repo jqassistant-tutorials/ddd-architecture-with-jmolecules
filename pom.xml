@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.1.0</version>
+        <version>4.1.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -29,6 +29,7 @@
         <confluence.ancestorId>80052225</confluence.ancestorId>
         <confluence.convertOnly>true</confluence.convertOnly>
         <jqassistant-report-path>${session.executionRootDirectory}/target/jqassistant/jqassistant-report.xml</jqassistant-report-path>
+        <jqassistant.version>2.10.0-M4</jqassistant.version>
     </properties>
     <dependencies>
         <dependency>
@@ -48,12 +49,12 @@
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>2.2.52</version>
+            <version>2.2.55</version>
         </dependency>
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.11</version>
+            <version>0.2.13</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -90,6 +91,7 @@
             <groupId>com.buschmais.jqassistant.plugin</groupId>
             <artifactId>java-annotation</artifactId>
             <version>${jqassistant.version}</version>
+            <scope>provided</scope>
         </dependency>
         <!-- jMolecules -->
         <dependency>
@@ -131,7 +133,7 @@
                 <!-- OpenAPI Generator -->
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>7.24.0</version>
+                <version>7.26.0</version>
                 <configuration>
                     <generatorName>spring</generatorName>
                     <modelNameSuffix>DTO</modelNameSuffix>
@@ -139,7 +141,7 @@
                         <interfaceOnly>true</interfaceOnly>
                         <skipDefaultInterface>true</skipDefaultInterface>
                         <useJakartaEe>true</useJakartaEe>
-                        <configPackage>org.jqassistant.demo.architecture.hexagonal.adapters.shared</configPackage>
+                        <configPackage>org.jqassistant.demo.architecture.hexagonal.adapters.shared.api</configPackage>
                     </configOptions>
                 </configuration>
                 <executions>
@@ -152,10 +154,10 @@
                             <inputSpec>${project.basedir}/src/main/resources/user/adapters/primary/rest/v1/users.yml
                             </inputSpec>
                             <apiPackage>
-                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.api
                             </apiPackage>
                             <modelPackage>
-                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.model
+                                org.jqassistant.demo.architecture.hexagonal.user.adapters.primary.rest.v1.users.api.model
                             </modelPackage>
                         </configuration>
                     </execution>
@@ -168,10 +170,10 @@
                             <inputSpec>${project.basedir}/src/main/resources/issue/adapters/primary/rest/v1/issues.yml
                             </inputSpec>
                             <apiPackage>
-                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api
                             </apiPackage>
                             <modelPackage>
-                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model
+                                org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model
                             </modelPackage>
                         </configuration>
                     </execution>

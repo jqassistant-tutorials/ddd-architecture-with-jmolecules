@@ -2,7 +2,7 @@ jqassistant:
   plugins:
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-spring-plugin
-      version: 2.5.0
+      version: 2.8.1
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-jmolecules-plugin
       version: 2.1.0-M4
@@ -17,7 +17,10 @@ jqassistant:
       version: 2.1.0
     - group-id: org.jqassistant.plugin
       artifact-id: jqassistant-codecharta-plugin
-      version: 1.0.0
+      version: 1.0.1
+    - group-id: org.jqassistant.plugin
+      artifact-id: jqassistant-sarif-report-plugin
+      version: 1.0.0-M1
   store:
     embedded:
       apoc-enabled: true
@@ -33,9 +36,9 @@ jqassistant:
       - jmolecules-ddd:Strict
       - jmolecules-hexagonal:Default
       - bounded-context
-      - spring-boot:Strict
       - rest
       - maven
+      - spring-boot:Strict
     concepts:
       - codecharta-java:TypeReport
     execute-applied-concepts: true
@@ -45,3 +48,8 @@ jqassistant:
       continue-on-failure: true
       properties:
         plantuml.report.rendermode: elk
+        sarif:
+          report:
+            message:
+              text: full
+              markdown: none

@@ -1,6 +1,6 @@
 package org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1;
 
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.CommentDTO;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model.CommentDTO;
 import org.jqassistant.demo.architecture.hexagonal.issue.domain.model.Comment;
 import org.mapstruct.Mapper;
 

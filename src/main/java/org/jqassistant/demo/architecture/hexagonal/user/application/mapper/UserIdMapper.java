@@ -1,5 +1,7 @@
 package org.jqassistant.demo.architecture.hexagonal.user.application.mapper;
 
+import com.buschmais.jqassistant.plugin.java.annotation.jQASuppress;
+
 import org.jqassistant.demo.architecture.hexagonal.user.application.UserApplicationService;
 import org.jqassistant.demo.architecture.hexagonal.user.domain.model.User;
 import org.mapstruct.Mapper;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Mapper
 public abstract class UserIdMapper {
 
+    @jQASuppress(value = "spring-injection:FieldInjectionIsNotAllowed", reason = "Field injection is required by MapStruct.", until = "2030-12-31")
     @Autowired
     private UserApplicationService userApplicationService;
 

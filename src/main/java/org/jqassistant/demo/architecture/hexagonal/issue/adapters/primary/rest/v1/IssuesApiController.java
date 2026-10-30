@@ -3,11 +3,11 @@ package org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jmolecules.architecture.hexagonal.PrimaryAdapter;
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.IssuesApi;
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.AssignIssueRequestDTO;
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.CommentDTO;
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.CreateIssueRequestDTO;
-import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.model.IssueDTO;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.IssuesApi;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model.AssignIssueRequestDTO;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model.CommentDTO;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model.CreateIssueRequestDTO;
+import org.jqassistant.demo.architecture.hexagonal.issue.adapters.primary.rest.v1.issues.api.model.IssueDTO;
 import org.jqassistant.demo.architecture.hexagonal.issue.application.IssueApplicationService;
 import org.jqassistant.demo.architecture.hexagonal.issue.domain.model.Issue;
 import org.jqassistant.demo.architecture.hexagonal.issue.domain.model.IssueType;
@@ -61,14 +61,14 @@ public class IssuesApiController implements IssuesApi {
 
     @Override
     public ResponseEntity<IssueDTO> assignIssue(Long id, AssignIssueRequestDTO assignIssueRequestDTO) {
-        log.info("Assign issue '{id}' to '{}'.", id, assignIssueRequestDTO);
+        log.info("Assign issue '{}' to '{}'.", id, assignIssueRequestDTO);
         Issue issue = issueApplicationService.assignUser(issueApplicationService.findById(id), assignIssueRequestDTO.getAssigneeId());
         return status(CREATED).body(issueDTOMapper.fromDomain(issue));
     }
 
     @Override
     public ResponseEntity<IssueDTO> commentIssue(Long id, CommentDTO commentDTO) {
-        log.info("Comment issue '{id}' with '{}'.", id, commentDTO);
+        log.info("Comment issue '{}' with '{}'.", id, commentDTO);
         Issue issue = issueApplicationService.findById(id);
         return status(CREATED).body(issueDTOMapper.fromDomain(issueApplicationService.comment(issue, commentDTOMapper.toDomain(commentDTO))));
     }
