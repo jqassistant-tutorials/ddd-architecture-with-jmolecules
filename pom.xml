@@ -26,8 +26,8 @@
         <asciidoctorj.plantuml.version>1.2026.2</asciidoctorj.plantuml.version>
         <!-- Confluence -->
         <confluence.url>https://buschmais.atlassian.net/wiki</confluence.url>
-        <confluence.username>${env.CONFLUENCE_USERNAME}</confluence.username>
-        <confluence.password>${env.CONFLUENCE_PASSWORD}</confluence.password>
+        <confluence.username>confluence</confluence.username>
+        <confluence.password>confluence</confluence.password>
         <confluence.spaceKey>development</confluence.spaceKey>
         <confluence.ancestorId>80052225</confluence.ancestorId>
         <confluence.convertOnly>true</confluence.convertOnly>
@@ -292,6 +292,22 @@
                             </dependency>
                         </dependencies>
                     </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>publish-to-confluence</id>
+            <activation>
+                <property>
+                    <name>env.CONFLUENCE_USERNAME</name>
+                </property>
+            </activation>
+            <properties>
+                <confluence.username>${env.CONFLUENCE_USERNAME}</confluence.username>
+                <confluence.password>${env.CONFLUENCE_PASSWORD}</confluence.password>
+            </properties>
+            <build>
+                <plugins>
                     <plugin>
                         <groupId>org.sahli.asciidoc.confluence.publisher</groupId>
                         <artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
