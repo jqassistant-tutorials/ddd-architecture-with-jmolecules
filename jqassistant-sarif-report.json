@@ -17,6 +17,18 @@
           "defaultConfiguration" : {
             "level" : "error"
           }
+        },
+          {
+          "id" : "anotherRule",
+          "shortDescription": {
+            "text": "This is the test Rule"
+          },
+          "fullDescription": {
+            "text": "it exists only for test reasons"
+          },
+          "defaultConfiguration" : {
+            "level" : "warning"
+          }
         }, {
           "id" : "maven:DependencyMustBeManaged",
           "defaultConfiguration" : {
@@ -48,6 +60,19 @@
         "type" : "issue",
         "check_name" : "[jQAssistant]rest:DTOMustBeLocatedInModelPackage"
       }
+    }, {
+      "ruleId": "anotherRule",
+      "message": {
+        "text": "it exists only for test reasons"
+      },
+      "locations": [{
+        "physicalLocation": {
+          "artifactLocation": {
+            "uri": "src/main/java/org/jqassistant/demo/architecture/hexagonal/user/application/UserApplicationService.java"
+          }
+        }
+      }
+      ]
     }, {
       "ruleId" : "maven:DependencyMustBeManaged",
       "message" : {
