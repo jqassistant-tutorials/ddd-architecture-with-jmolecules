@@ -26,8 +26,8 @@
         <asciidoctorj.plantuml.version>1.2026.2</asciidoctorj.plantuml.version>
         <!-- Confluence -->
         <confluence.url>https://buschmais.atlassian.net/wiki</confluence.url>
-        <confluence.username>confluence</confluence.username>
-        <confluence.password>confluence</confluence.password>
+        <confluence.username>${env.CONFLUENCE_USERNAME}</confluence.username>
+        <confluence.password>${env.CONFLUENCE_PASSWORD}</confluence.password>
         <confluence.spaceKey>development</confluence.spaceKey>
         <confluence.ancestorId>80052225</confluence.ancestorId>
         <confluence.convertOnly>true</confluence.convertOnly>
