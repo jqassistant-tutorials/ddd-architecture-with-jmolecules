@@ -49,6 +49,7 @@ jobs:
           if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
             mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
             -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
+            -Dsonar.jqassistant.disabled
             -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
             -Dsonar.organization="jqassistant-tutorials" \
             -Dsonar.sarifReportPaths=jqassistant-sarif-report.json
