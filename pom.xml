@@ -28,8 +28,8 @@
         <confluence.spaceKey>development</confluence.spaceKey>
         <confluence.ancestorId>80052225</confluence.ancestorId>
         <confluence.convertOnly>true</confluence.convertOnly>
-        <confluence.username>${env.CONFLUENCE_USERNAME}</confluence.username>
-        <confluence.password>${env.CONFLUENCE_PASSWORD}</confluence.password>
+        <confluence.username>confluence</confluence.username>
+        <confluence.password>confluence</confluence.password>
         <jqassistant-report-path>${session.executionRootDirectory}/target/jqassistant/jqassistant-report.xml</jqassistant-report-path>
         <jqassistant.version>2.10.0-M4</jqassistant.version>
     </properties>
