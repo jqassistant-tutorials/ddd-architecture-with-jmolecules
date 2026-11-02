@@ -44,7 +44,16 @@ jobs:
           
       - name: Build and test
         run: mvn --batch-mode verify
-      - name: Execute Sonarqube analysis
+
+      - name: Upload SARIF to Github
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: jqassistant-sarif-report.json
+          category: jQAssistant
+          ref: ${{ github.ref }}
+          sha: ${{ github.sha }}
+
+      - name: Upload SARIF to Sonarqube
         run: |
           if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
             mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
@@ -56,6 +65,7 @@ jobs:
           fi
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Upload SARIF to SonarCloud
         run: |
           if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" ]]; then
