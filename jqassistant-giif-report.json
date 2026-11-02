@@ -1,0 +1,53 @@
+{
+  "rules": [
+    {
+      "id": "RuleId",
+      "name": "rules.name | rule.id",
+      "description": "rules.description | rule.decription",
+      "engineId": "jQAssistant",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "HIGH"
+        }
+      ]
+    },
+    {
+      "id": "rest:DTOMustBeLocatedInModelPackage",
+      "name": "rest:DTOMustBeLocatedInModelPackage",
+      "description": "All DTO classes must be located in packages named \"model\".",
+      "engineId": "jQAssistant",
+      "impacts": [
+        {
+          "softwareQuality": "MAINTAINABILITY",
+          "severity": "LOW"
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "ruleId": "RuleId",
+      "primaryLocation": {
+        "message": "issues.primaryLocation.message",
+        "filePath": ".github/workflows/ci.yml",
+        "textRange": {
+          "startLine": 53,
+          "startColumn": 1,
+          "endLine": 57,
+          "endColumn": 4
+        }
+      }
+    },
+    {
+      "ruleId": "rest:DTOMustBeLocatedInModelPackage",
+      "primaryLocation": {
+        "message": "| DTO | org.jqassistant.demo.architecture.hexagonal.shared.adapters.primary.rest.exception.ErrorDTO |",
+        "filePath": "src/main/java/org/jqassistant/demo/architecture/hexagonal/shared/adapters/primary/rest/exception/ErrorDTO.java",
+        "textRange": {
+          "startLine": 1
+        }
+      }
+    }
+  ]
+}
