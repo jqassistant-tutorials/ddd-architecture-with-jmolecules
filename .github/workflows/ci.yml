@@ -50,8 +50,6 @@ jobs:
         with:
           sarif_file: jqassistant-sarif-report.json
           category: jQAssistant
-          ref: ${{ github.ref }}
-          sha: ${{ github.sha }}
 
       - name: Upload SARIF to Sonarqube
         run: |
