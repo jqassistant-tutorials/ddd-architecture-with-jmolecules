@@ -5,6 +5,7 @@
       "name": "rules.name | rule.id",
       "description": "rules.description | rule.decription",
       "engineId": "jQAssistant",
+      "cleanCodeAttribute": "CONVENTIONAL",
       "impacts": [
         {
           "softwareQuality": "MAINTAINABILITY",
@@ -17,6 +18,7 @@
       "name": "rest:DTOMustBeLocatedInModelPackage",
       "description": "All DTO classes must be located in packages named \"model\".",
       "engineId": "jQAssistant",
+      "cleanCodeAttribute": "CONVENTIONAL",
       "impacts": [
         {
           "softwareQuality": "MAINTAINABILITY",
