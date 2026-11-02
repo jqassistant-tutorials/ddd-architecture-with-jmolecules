@@ -21,16 +21,14 @@
           {
           "id" : "anotherRuleId",
           "shortDescription": {
-            "text": "short-description"
-          },
-          "fullDescription": {
-            "text": "full-description"
+            "text": "runs.tool.driver.rules.shortDescription"
           },
           "defaultConfiguration" : {
             "level" : "warning"
           },
           "help": {
-            "text": "help-text"
+            "text": "runs.tool.driver.rules.help.text",
+            "markdown": "runs.tool.driver.rules.help.markdown"
           }
         }, {
           "id" : "maven:DependencyMustBeManaged",
@@ -66,7 +64,36 @@
     }, {
       "ruleId": "anotherRuleId",
       "message": {
-        "text": "message-text"
+        "text": "runs.results.message.text",
+        "markdown": "runs.results.message.markdown"
+      },
+      "locations": [{
+        "physicalLocation": {
+          "artifactLocation": {
+            "uri": ".github/workflows/ci.yml"
+          },
+          "region": {
+            "startLine": 53,
+            "startColumn": 1,
+            "endLine": 57,
+            "endColumn": 5
+          }
+        }
+      }
+      ],
+      "partialFingerprints": {
+        "rowKey": "6c98bd45940a84c7b0e330c92b448fd2d838e1a4bd7a624416db5efa3712c141"
+      },
+      "properties": {
+        "tags": ["maintainability"],
+        "type": "issue",
+        "check_name": "[jQAssistant]anotherRule"
+      }
+    },{
+      "ruleId": "anotherRuleId",
+      "message": {
+        "text": "duplicated issue",
+        "markdown": "duplicated issue - markdown"
       },
       "locations": [{
         "physicalLocation": {
