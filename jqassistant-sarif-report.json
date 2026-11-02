@@ -19,18 +19,18 @@
           }
         },
           {
-          "id" : "anotherRule",
+          "id" : "anotherRuleId",
           "shortDescription": {
-            "text": "This is the test Rule"
+            "text": "short-description"
           },
           "fullDescription": {
-            "text": "it exists only for test reasons"
+            "text": "full-description"
           },
           "defaultConfiguration" : {
             "level" : "warning"
           },
           "help": {
-            "text": "smthsmth"
+            "text": "help-text"
           }
         }, {
           "id" : "maven:DependencyMustBeManaged",
@@ -64,9 +64,9 @@
         "check_name" : "[jQAssistant]rest:DTOMustBeLocatedInModelPackage"
       }
     }, {
-      "ruleId": "anotherRule",
+      "ruleId": "anotherRuleId",
       "message": {
-        "text": "it exists only for test reasons"
+        "text": "message-text"
       },
       "locations": [{
         "physicalLocation": {
