@@ -34,7 +34,7 @@
         "message": "issues.primaryLocation.message",
         "filePath": ".github/workflows/ci.yml",
         "textRange": {
-          "startLine": 53,
+          "startLine": 54,
           "startColumn": 1,
           "endLine": 57,
           "endColumn": 4
