@@ -68,11 +68,11 @@
       "locations": [{
         "physicalLocation": {
           "artifactLocation": {
-            "uri": "src/main/java/org/jqassistant/demo/architecture/hexagonal/user/application/UserApplicationService.java"
+            "uri": ".github/workflows/ci.yml"
           },
           "region": {
-            "startLine": 4,
-            "endLine": 7
+            "startLine": 53,
+            "endLine": 57
           }
         }
       }
