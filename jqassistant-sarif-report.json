@@ -23,6 +23,9 @@
           "shortDescription": {
             "text": "runs.tool.driver.rules.shortDescription"
           },
+          "fullDescription": {
+            "text": "runs.tool.driver.rules.fullDescription"
+          },
           "defaultConfiguration" : {
             "level" : "warning"
           },
