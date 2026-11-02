@@ -32,7 +32,7 @@
       "ruleId": "RuleId",
       "primaryLocation": {
         "message": "issues.primaryLocation.message",
-        "filePath": ".github/workflows/ci.yml",
+        "filePath": "src/main/java/org/jqassistant/demo/architecture/hexagonal/user/adapters/secondary/database/UserRepositoryImpl.java",
         "textRange": {
           "startLine": 54,
           "startColumn": 1,
