@@ -51,7 +51,7 @@ jobs:
           sarif_file: jqassistant-sarif-report.json
           category: jQAssistant
 
-      - name: Upload SARIF to Sonarqube
+      - name: Upload GIIF to Sonarqube
         run: |
           if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
             mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
@@ -64,7 +64,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Upload SARIF to SonarCloud
+      - name: Upload GIIF to SonarCloud
         run: |
           if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" ]]; then
               mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \

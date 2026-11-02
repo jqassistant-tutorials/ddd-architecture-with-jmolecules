@@ -34,9 +34,9 @@
         "message": "issues.primaryLocation.message",
         "filePath": "src/main/java/org/jqassistant/demo/architecture/hexagonal/user/adapters/secondary/database/UserRepositoryImpl.java",
         "textRange": {
-          "startLine": 54,
+          "startLine": 15,
           "startColumn": 1,
-          "endLine": 57,
+          "endLine": 25,
           "endColumn": 4
         }
       }
