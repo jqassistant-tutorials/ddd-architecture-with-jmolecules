@@ -81,6 +81,7 @@
         "rowKey": "6c98bd45940a84c7b0e330c92b448fd2d838e1a4bd7a624416db5efa3712c141"
       },
       "properties": {
+        "tags": ["maintainability"],
         "type": "issue",
         "check_name": "[jQAssistant]anotherRule"
       }
