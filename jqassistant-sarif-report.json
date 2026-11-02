@@ -31,7 +31,7 @@
           },
           "help": {
             "text": "runs.tool.driver.rules.help.text",
-            "markdown": "runs.tool.driver.rules.help.markdown"
+            "markdown": "| markdown | issue | \n | --- | --- | \n | this is some **markdown** syntax | runs.tool.driver.rules.help.markdown |"
           }
         }, {
           "id" : "maven:DependencyMustBeManaged",
@@ -96,7 +96,7 @@
       "ruleId": "anotherRuleId",
       "message": {
         "text": "duplicated issue",
-        "markdown": "duplicated issue - markdown"
+        "markdown": "| markdown | issue | \n | --- | --- | \n | this is some **markdown** syntax | duplicated issue |"
       },
       "locations": [{
         "physicalLocation": {
