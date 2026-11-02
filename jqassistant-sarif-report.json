@@ -57,9 +57,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "ae5977613eee6dc61d877de9e5fbdeeffb694619c1ccdbc776f35a98d6e26c9f"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]rest:DTOMustBeLocatedInModelPackage"
@@ -84,9 +81,6 @@
         }
       }
       ],
-      "partialFingerprints": {
-        "rowKey": "6c98bd45940a84c7b0e330c92b448fd2d838e1a4bd7a624416db5efa3712c141"
-      },
       "properties": {
         "tags": ["maintainability"],
         "type": "issue",
@@ -112,9 +106,6 @@
         }
       }
       ],
-      "partialFingerprints": {
-        "rowKey": "6c98bd45940a84c7b0e330c92b448fd2d838e1a4bd7a624416db5efa3712c141"
-      },
       "properties": {
         "tags": ["maintainability"],
         "type": "issue",
@@ -136,9 +127,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "4593e082de42fa9b60b0ad5bff40ebfdf6869651ee371951cdaf5895c8e4dcc1"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -159,9 +147,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "9b1c8b1299054ec29988fa5e028e5ed0e5b02ad017128291825ccd9ad9aad57f"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -182,9 +167,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "45f7c093ea97d77ef20aa578b8d36b725436c62abd08c2ecf5b1df14a1ff4f13"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -205,9 +187,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "e32c7ed1712eb919fbd5fdb355ea2f3f2790b7214fa7370307803d22db4d62ba"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -228,9 +207,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "cc1a3246ca4bfa759a9e7e9f6a2d1a9d8307dd6398f908f167501e9341cb0871"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -251,9 +227,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "6cbe2c6d49b3d3ae1fabebd24b62047be7b12bf744e22bf33d7a86e9a562fd8f"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
@@ -274,9 +247,6 @@
           }
         }
       } ],
-      "partialFingerprints" : {
-        "rowKey" : "100ff3f566ad8b759fbbebe6a9ea757137cc78084707a047005167776190661a"
-      },
       "properties" : {
         "type" : "issue",
         "check_name" : "[jQAssistant]maven:DependencyMustBeManaged"
