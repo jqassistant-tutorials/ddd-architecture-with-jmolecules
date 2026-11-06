@@ -58,7 +58,7 @@ jobs:
           ref: ${{ github.ref }}
           sha: ${{ github.sha }}
           
-      - name: Analyze
+      - name: Upload to SonarCloud
         run: |
           mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:5.6.0.6792:sonar \
           -Dsonar.host.url=https://sonarcloud.io \
