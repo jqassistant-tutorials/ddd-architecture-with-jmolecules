@@ -50,29 +50,3 @@ jobs:
         with:
           sarif_file: jqassistant-sarif-report.json
           category: jQAssistant
-
-      - name: Upload GIIF to Sonarqube
-        run: |
-          if [[ ${{ github.actor != 'dependabot[bot]' }} = "true" ]]; then
-            mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.host.url="https://sonar-dev.jqassistant.org/sonar/" \
-            -Dsonar.jqassistant.disabled \
-            -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-            -Dsonar.organization="jqassistant-tutorials" \
-            -Dsonar.externalIssuesReportPaths=jqassistant-giif-report.json
-          fi
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: Upload GIIF to SonarCloud
-        run: |
-          if [[ "${{ github.actor != 'dependabot[bot]' }}" == "true" ]]; then
-              mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-              -Dsonar.host.url=https://sonarcloud.io \
-              -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-              -Dsonar.organization="jqassistant-tutorials" \
-              -Dsonar.externalIssuesReportPaths=jqassistant-giif-report.json
-          fi
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
