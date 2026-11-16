@@ -214,12 +214,12 @@
     }, {
       "ruleId" : "maven:DependencyMustBeManaged",
       "message" : {
-        "text" : "All used Maven dependencies must be managed in a \"dependencyManagement\" section. |Model: org.jqassistant.demo.architecture:hexagonal |Project: hexagonal |Dependency: org.openapitools:jackson-databind-nullable:jar:0.2.12 "
+        "text" : "default-location"
       },
       "locations" : [ {
         "physicalLocation" : {
           "artifactLocation" : {
-            "uri" : "pom.xml"
+            "uri" : ".jqassistant.yml"
           },
           "region" : {
             "startLine" : 1,
