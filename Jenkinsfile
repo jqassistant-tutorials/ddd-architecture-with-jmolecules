@@ -6,16 +6,14 @@ pipeline {
         }
 
     stages {
-        stages {
-
-                stage('Archive Results') {
-                    steps {
-                        archiveArtifacts artifacts: 'jqassistant-sarif-report.json',
-                                       fingerprint: true,
-                                       onlyIfSuccessful: true
-                    }
-                }
+        stage('Archive Results') {
+             steps {
+                  archiveArtifacts artifacts: 'jqassistant-sarif-report.json',
+                                   fingerprint: true,
+                                   onlyIfSuccessful: true
+             }
         }
+
     }
 
     post {
