@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mvn clean verify'
+                withEnv(["JAVA_HOME=${tool 'JDK-25'}"]) {
+                                    sh 'mvn clean verify'
+                                }
             }
         }
         stage('Archive Results') {
