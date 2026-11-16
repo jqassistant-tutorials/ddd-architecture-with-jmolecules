@@ -15,6 +15,7 @@ pipeline {
                                        onlyIfSuccessful: true
                     }
                 }
+        }
     }
 
     post {
