@@ -2,16 +2,13 @@ pipeline {
     agent any
 
     tools {
-            jdk 'JDK-25'
             maven 'Maven'
         }
 
     stages {
         stage('build') {
             steps {
-                withEnv(["JAVA_HOME=${tool 'JDK-25'}"]) {
-                                    sh 'mvn clean verify'
-                                }
+                sh 'mvn clean verify'
             }
         }
         stage('Archive Results') {
