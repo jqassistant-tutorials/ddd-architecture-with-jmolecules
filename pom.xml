@@ -17,7 +17,7 @@
     <description>Demo application for hexagonal architecture</description>
 
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
         <mapstruct.version>1.6.3</mapstruct.version>
         <jmolecules.version>2.0.1</jmolecules.version>
         <jqassistant.version>2.10.0-M3</jqassistant.version>
@@ -128,6 +128,11 @@
                     <groupId>com.buschmais.jqassistant</groupId>
                     <artifactId>jqassistant-maven-plugin</artifactId>
                     <version>${jqassistant.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>5.6.0.6792</version>
                 </plugin>
             </plugins>
         </pluginManagement>

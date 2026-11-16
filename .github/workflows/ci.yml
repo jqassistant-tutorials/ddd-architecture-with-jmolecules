@@ -13,7 +13,7 @@ on:
   workflow_dispatch: {}
   workflow_call:
     secrets:
-      CONFLUENCE_USERNAME:
+      SONARCLOUD_TOKEN:
         required: true
       SONAR_TOKEN:
         required: true
@@ -44,28 +44,9 @@ jobs:
           
       - name: Build and test
         run: mvn --batch-mode verify
-      - name: Publish to Confluence
-        run: mvn --batch-mode asciidoc-confluence-publisher:publish -DskipTests -Dconfluence.convertOnly=false
-        env:
-          CONFLUENCE_USERNAME: ${{ secrets.CONFLUENCE_USERNAME }}
-          CONFLUENCE_PASSWORD: ${{ secrets.CONFLUENCE_PASSWORD }}
-        
-      - name: Upload SARIF-Report
+
+      - name: Upload SARIF to Github
         uses: github/codeql-action/upload-sarif@v4
         with:
-          sarif_file: ./target/jqassistant/report/sarif/jqassistant-sarif-report.json
+          sarif_file: jqassistant-sarif-report.json
           category: jQAssistant
-          ref: ${{ github.ref }}
-          sha: ${{ github.sha }}
-          
-      - name: Upload to SonarCloud
-        run: |
-          mvn --batch-mode org.sonarsource.scanner.maven:sonar-maven-plugin:5.6.0.6792:sonar \
-          -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.projectKey="jqassistant-tutorials_ddd-architecture-with-jmolecules" \
-          -Dsonar.organization="jqassistant-tutorials" \
-          -Dsonar.sarifReportPaths=target/jqassistant/report/sarif/jqassistant-sarif-report.json
-        env:
-          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
