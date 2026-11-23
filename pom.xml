@@ -32,7 +32,7 @@
         <confluence.ancestorId>80052225</confluence.ancestorId>
         <confluence.convertOnly>true</confluence.convertOnly>
         <jqassistant-report-path>${session.executionRootDirectory}/target/jqassistant/jqassistant-report.xml</jqassistant-report-path>
-        <jqassistant.version>2.10.0-M4</jqassistant.version>
+        <jqassistant.version>2.10.0-RC1</jqassistant.version>
     </properties>
     <dependencies>
         <dependency>
